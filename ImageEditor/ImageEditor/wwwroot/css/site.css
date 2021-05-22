@@ -43,3 +43,7 @@
     border: 2px solid black;
     opacity: 1;
 }
+
+.w3-button:hover {
+    opacity: 1;
+}
