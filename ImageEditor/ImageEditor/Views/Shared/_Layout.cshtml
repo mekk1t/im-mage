@@ -94,8 +94,15 @@
             @RenderBody()
         <div class="w3-container kit-flex kit-flex-downward">
             <h3 class="kit-flex-center">Трансформация</h3>
-            <a href="#" class="w3-panel w3-padding-16 w3-button w3-round-medium">Повернуть</a>
-            <a href="#" class="w3-panel w3-padding-16 w3-button w3-round-medium">Отразить</a>
+            <button onclick="toggleButtonSelectionStatus(this), toggleElement('rotate-options')" class="w3-panel w3-padding-16 w3-button w3-round-medium selectable-button">
+                Повернуть
+            </button>
+            <div id="rotate-options" class="w3-hide w3-border kit-flex kit-flex-downward">
+                <button class="w3-panel w3-padding-16 w3-button w3-round-medium">На 90&deg; против часовой</button>
+                <button class="w3-panel w3-padding-16 w3-button w3-round-medium">На 90&deg; по часовой</button>
+                <button class="w3-panel w3-padding-16 w3-button w3-round-medium">На 180&deg;</button>
+            </div>
+            <button href="#" class="w3-panel w3-padding-16 w3-button w3-round-medium">Отразить</button>
             <button class="w3-panel w3-padding-16 w3-button w3-round-medium" onclick="toggleElement('zoom')">Масштаб</button>
             <div id="zoom" class="w3-hide w3-center">
                 <span class="input-min-value">0%</span>
