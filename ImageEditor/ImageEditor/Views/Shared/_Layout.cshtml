@@ -36,13 +36,27 @@
                 </button>
                 <button onclick="toggleButtonSelectionStatus(this)"
                         class="w3-panel w3-button w3-padding-16 w3-round-medium w3-green
-                        selectable-button">Оттенки зеленого</button>
+                        selectable-button">
+                    Оттенки зеленого
+                </button>
                 <button onclick="toggleButtonSelectionStatus(this)"
                         class="w3-panel w3-button w3-padding-16 w3-round-medium w3-red
-                        selectable-button">Оттенки красного</button>
+                        selectable-button">
+                    Оттенки красного
+                </button>
                 <button onclick="toggleButtonSelectionStatus(this)"
                         class="w3-panel w3-button w3-padding-16 w3-round-medium w3-blue
-                        selectable-button">Оттенки синего</button>
+                        selectable-button">
+                    Оттенки синего
+                </button>
+                <button id="toggle-more-filters-button" onclick="toggleFilters()" class="w3-panel w3-button w3-ripple w3-padding-16 w3-round-medium w3-blue" >Показать другие</button>
+                <div id="more-filters" class="kit-flex kit-flex-downward w3-hide">
+                    <button onclick="toggleButtonSelectionStatus(this)"
+                            class="w3-panel w3-button w3-padding-16 w3-round-medium w3-khaki
+                        selectable-button">
+                        Размытие
+                    </button>
+                </div>
             </div>
             @RenderBody()
             <div class="w3-container kit-flex kit-flex-downward">

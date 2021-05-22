@@ -11,3 +11,15 @@ function calculateImageSize() {
 function toggleButtonSelectionStatus(button) {
     button.classList.toggle("selected");
 }
+
+function toggleFilters() {
+    let toggleButton = document.getElementById("toggle-more-filters-button");
+    let moreFiltersDiv = document.getElementById("more-filters");
+    if (moreFiltersDiv.classList.contains("w3-hide")) {
+        toggleButton.textContent = "Спрятать";
+    } else {
+        toggleButton.textContent = "Показать другие";
+    }
+
+    moreFiltersDiv.classList.toggle("w3-hide");
+}
