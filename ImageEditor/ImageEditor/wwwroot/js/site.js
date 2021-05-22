@@ -9,5 +9,5 @@ function calculateImageSize() {
     sizeOutput.value = `${currentSize.value}%`;
 }
 function toggleButtonSelectionStatus(button) {
-    button.classList.toggle("selectable-button");
+    button.classList.toggle("selected");
 }

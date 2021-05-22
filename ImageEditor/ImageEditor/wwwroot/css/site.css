@@ -29,6 +29,22 @@
     margin-right: 5px;
 }
 
-.selectable-button {
-    border: 5px solid black;
+.selectable-button-border-white {
+    border: 5px solid white;
+}
+
+.selectable-button-border-red {
+    border: 5px solid red;
+}
+
+.selectable-button-border-green {
+    border: 5px solid green;
+}
+
+.selectable-button-border-blue {
+    border: 5px solid blue;
+}
+
+.selected {
+    border: 5px dashed black;
 }
