@@ -14,9 +14,10 @@ namespace ImageEditor.Controllers
     public class TransformationController : Controller
     {
         [Route("rotate")]
-        public IActionResult Rotate(RotationRequest request)
+        [HttpPost]
+        public IActionResult Rotate([FromBody] RotationRequest request)
         {
-            using var image = Image.Load(request.Image.OpenReadStream());
+            using var image = Image.Load(Convert.FromBase64String(request.ImageBase64));
             switch (request.Rotation)
             {
                 case Rotation.Left90Degrees:
@@ -34,7 +35,7 @@ namespace ImageEditor.Controllers
 
             using var ms = new MemoryStream();
             image.Save(ms, new JpegEncoder());
-            return View("Picture", new PictureViewModel { Base64 = Convert.ToBase64String(ms.ToArray()) });
+            return View("Picture", new PictureViewModel { Base64 = Convert.ToBase64String(ms.ToArray()), ContentType = request.ContentType });
         }
     }
 }

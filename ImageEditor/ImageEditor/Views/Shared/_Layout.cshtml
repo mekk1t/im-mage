@@ -13,7 +13,7 @@
         <div class="w3-dropdown-hover">
             <button class="w3-button">Файл</button>
             <div class="w3-dropdown-content w3-bar-block w3-border">
-                <button onclick="toggleModal('upload-image-modal')"  class="w3-bar-item w3-button-hover w3-button">Выбрать</button>
+                <button onclick="document.getElementById('upload-image-modal').style.display = 'block';"  class="w3-bar-item w3-button-hover w3-button">Выбрать</button>
                 <div class="w3-bar-item w3-dropdown-hover">
                     Сохранить
                     <div class="w3-dropdown-content w3-bar-block w3-border file-extensions-dropdown">
@@ -85,7 +85,7 @@
                 </div>
             </div>
             <div class="kit-flex kit-flex-downward">
-                <div class="editing-image w3-border w3-light-gray" style="height: 100%; margin-left: 25px;">
+                <div class="editing-image" style="height: 100%; margin-left: 25px;">
                     @RenderBody()
                 </div>
                 <div class="w3-container w3-margin-top kit-flex-center action-buttons">
@@ -102,7 +102,7 @@
                     <div class="kit-width-full w3-dropdown-content w3-bar-block w3-border">
                         <button class="w3-bar-item w3-button-hover w3-button">На 90&deg; против часовой</button>
                         <button class="w3-bar-item w3-button-hover w3-button">На 90&deg; по часовой</button>
-                        <button class="w3-bar-item w3-button-hover w3-button">На 180&deg;</button>
+                        <button onclick="rotateImage()" class="w3-bar-item w3-button-hover w3-button">На 180&deg;</button>
                     </div>
                 </div>
                 <button href="#" class="kit-flex-center w3-half w3-panel w3-button w3-indigo w3-round-medium w3-ripple">Отразить</button>
@@ -143,7 +143,7 @@
     <div id="upload-image-modal" class="w3-modal">
         <div class="w3-modal-content w3-animate-top">
             <header class="w3-container w3-indigo">
-                <span onclick="toggleModal('upload-image-modal')" class="close-modal w3-button w3-display-topright">&times;</span>
+                <span onclick="document.getElementById('upload-image-modal').style.display = 'none';" class="close-modal w3-button w3-display-topright">&times;</span>
                 <h2>Выбор изображения</h2>
             </header>
             <form class="w3-container" enctype="multipart/form-data" method="post">

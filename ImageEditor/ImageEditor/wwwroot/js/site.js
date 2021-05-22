@@ -33,12 +33,7 @@ function toggleFilters() {
     moreFiltersDiv.classList.toggle("w3-hide");
 }
 
-function rotateImage() {
-    let image = $("img");
-
-}
-
-function selectImage(form) {
+function selectImage() {
     var input = document.getElementById("image-upload");
     var files = input.files;
     var formData = new FormData();
@@ -54,6 +49,7 @@ function selectImage(form) {
             contentType: false,
             success: function (result) {
                 $("div.editing-image").html(result);
+                document.getElementById('upload-image-modal').style.display = 'none';
             },
             error: function (xhr) {
                 alert(xhr.responseText);
@@ -62,11 +58,31 @@ function selectImage(form) {
     );
 }
 
-function toggleModal(modalId) {
-    let modal = document.getElementById(modalId);
-    if (modal.style.display === 'none') {
-        modal.style.display = 'block';
-    } else {
-        modal.style.display = 'none';
-    }
+function getImageObject() {
+    let result = {
+        Image: document.getElementById('image-base64-hidden').value,
+        ContentType: document.getElementById('image-contentType-hidden').value
+    };
+    return result;
+}
+
+function rotateImage() {
+    let rotate = 'UpsideDown';
+    let image = getImageObject();
+    $.ajax({
+        url: "/api/images/transformations/rotate",
+        type: 'POST',
+        data: JSON.stringify({
+            ImageBase64: image.Image,
+            ContentType: image.ContentType,
+            Rotation: rotate
+        }),
+        contentType: 'application/json',
+        success: function (result) {
+            $("div.editing-image").html(result);
+        },
+        error: function (xhr) {
+            alert(xhr.responseText);
+        }
+    });
 }
