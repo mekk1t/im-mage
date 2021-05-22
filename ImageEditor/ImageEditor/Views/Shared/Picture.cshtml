@@ -7,5 +7,7 @@
 }
 else
 {
-    <img class="kit-flex-center" src="data:image/png;base64, @(Model.Base64)" alt="Картинка" />
+    Layout = null;
+    <img class="kit-flex-center" src="data:@(Model.ContentType);base64, @(Model.Base64)" alt="Картинка" />
+    <input id="image-base64-hidden" type="hidden" value="@Model.Base64" />
 }
