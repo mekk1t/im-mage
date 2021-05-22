@@ -57,3 +57,16 @@ div#rotate-options button.w3-button:hover {
     color: #000 !important;
     background-color: #ccc !important
 }
+
+.w3-button-hover:hover {
+    color: #000 !important;
+    background-color: #ccc !important
+}
+
+.w3-ripple:active {
+    opacity: 0.5 !important;
+}
+
+.w3-ripple {
+    transition: opacity 0s !important;
+}
