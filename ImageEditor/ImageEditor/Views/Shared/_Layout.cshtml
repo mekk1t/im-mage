@@ -13,7 +13,7 @@
         <div class="w3-dropdown-hover">
             <button class="w3-button">Файл</button>
             <div class="w3-dropdown-content w3-bar-block w3-border">
-                <a href="#" class="w3-bar-item w3-button-hover w3-button">Выбрать</a>
+                <button onclick="toggleModal('upload-image-modal')"  class="w3-bar-item w3-button-hover w3-button">Выбрать</button>
                 <div class="w3-bar-item w3-dropdown-hover">
                     Сохранить
                     <div class="w3-dropdown-content w3-bar-block w3-border file-extensions-dropdown">
@@ -140,5 +140,20 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+    <div id="upload-image-modal" class="w3-modal">
+        <div class="w3-modal-content w3-animate-top">
+            <header class="w3-container w3-indigo">
+                <span onclick="toggleModal('upload-image-modal')" class="close-modal w3-button w3-display-topright">&times;</span>
+                <h2>Выбор изображения</h2>
+            </header>
+            <form class="w3-container" enctype="multipart/form-data" method="post">
+                <label for="image-upload">Выберите изображение</label>
+                <input onchange="selectImage()" id="image-upload" type="file" />
+            </form>
+            <footer class="w3-container w3-indigo">
+                <i>Выбирайте изображения, пожалуйста.</i>
+            </footer>
+        </div>
+    </div>
 </body>
 </html>

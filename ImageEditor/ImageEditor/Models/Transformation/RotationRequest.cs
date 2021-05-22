@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,7 @@ namespace ImageEditor.Models.Transformation
 {
     public class RotationRequest
     {
-        public string Image { get; set; }
+        public IFormFile Image { get; set; }
         public Rotation Rotation { get; set; }
     }
 }

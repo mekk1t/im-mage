@@ -16,7 +16,7 @@ namespace ImageEditor.Controllers
         [Route("rotate")]
         public IActionResult Rotate(RotationRequest request)
         {
-            using var image = Image.Load(Convert.FromBase64String(request.Image));
+            using var image = Image.Load(request.Image.OpenReadStream());
             switch (request.Rotation)
             {
                 case Rotation.Left90Degrees:

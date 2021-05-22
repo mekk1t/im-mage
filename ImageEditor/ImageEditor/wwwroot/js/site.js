@@ -37,3 +37,36 @@ function rotateImage() {
     let image = $("img");
 
 }
+
+function selectImage(form) {
+    var input = document.getElementById("image-upload");
+    var files = input.files;
+    var formData = new FormData();
+
+    formData.append("file", files[0]);
+
+    $.ajax(
+        {
+            url: "/",
+            type: 'POST',
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function (result) {
+                $("div.editing-image").html(result);
+            },
+            error: function (xhr) {
+                alert(xhr.responseText);
+            }
+        }
+    );
+}
+
+function toggleModal(modalId) {
+    let modal = document.getElementById(modalId);
+    if (modal.style.display === 'none') {
+        modal.style.display = 'block';
+    } else {
+        modal.style.display = 'none';
+    }
+}
