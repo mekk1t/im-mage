@@ -1,15 +1,29 @@
 ﻿main {
     background: url(/images/image.jpg) no-repeat;
     background-size: cover;
+    background-attachment: fixed;
 }
 
 .editor-container {
     display: grid;
-    grid-template-columns: 1fr 1fr 4fr 2fr;
+    grid-template-columns: 1fr 2fr 1fr;
 }
 
 .editor-container img {
     height: 450px;
+}
+
+.editor-container div.w3-container:last-child button {
+    padding: 7px;
+}
+
+.editor-container div.w3-container:last-child div.w3-dropdown-hover {
+    margin-bottom: 15px;
+}
+
+.editor-container div.w3-container:last-child div.w3-dropdown-content {
+    right: 130px;
+    top: -1px;
 }
 
 .action-buttons button {
@@ -48,11 +62,25 @@
     opacity: 1;
 }
 
-#apply-filters-button {
-    border: 2px solid transparent;
-}
-
-div#rotate-options button.w3-button:hover {
+.w3-button-hover:hover {
     color: #000 !important;
     background-color: #ccc !important
+}
+
+.w3-ripple:active {
+    opacity: 0.5 !important;
+}
+
+.w3-ripple {
+    transition: opacity 0s !important;
+}
+
+.filters-grid {
+    grid-template-rows: 50px auto;
+}
+
+#rotate-options > button {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
 }

@@ -6,6 +6,18 @@
     grid-template-columns: 1fr 1fr 1fr;
 }
 
+.kit-grid-2 {
+    grid-template-columns: 1fr 1fr;
+}
+
+.kit-grid-span-2 {
+    grid-column: span 2;
+}
+
+.kit-grid-center {
+    align-self: center;
+}
+
 .kit-flex {
     display: flex;
 }
@@ -33,4 +45,8 @@
 
 .kit-width-500 {
     width: 500px;
+}
+
+.kit-width-full {
+    width: 100%;
 }

@@ -9,7 +9,15 @@ function calculateInput(containerId) {
     let sizeOutput = container.querySelector('output');
     sizeOutput.value = `${currentSize.value}%`;
 }
-function toggleButtonSelectionStatus(button) {
+function toggleFilterButtonSelectionStatus(button) {
+    button.classList.toggle("selected");
+    let applyButton = document.getElementById("apply-filters-button");
+    if (applyButton.classList.contains("w3-disabled")) {
+        applyButton.classList.toggle("w3-disabled");
+    }
+}
+
+function toggleNonFilterButtonSelectionStatus(button) {
     button.classList.toggle("selected");
 }
 
