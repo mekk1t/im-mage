@@ -29,75 +29,76 @@
         <div class="w3-border w3-padding-16 editor-container">
             <div class="w3-container kit-flex kit-flex-downward">
                 <h3 class="kit-flex-center">Фильтры 1</h3>
-                <button onclick="toggleButtonSelectionStatus(this)"
-                        class="w3-panel w3-button w3-padding-16 w3-round-medium w3-white w3-ripple
+                <button onclick="toggleFilterButtonSelectionStatus(this)"
+                        class="w3-panel w3-button w3-round-medium w3-white w3-ripple
                         selectable-button">
                     Черно-белый
                 </button>
-                <button onclick="toggleButtonSelectionStatus(this)"
-                        class="w3-panel w3-button w3-padding-16 w3-round-medium w3-green
+                <button onclick="toggleFilterButtonSelectionStatus(this)"
+                        class="w3-panel w3-button w3-round-medium w3-green
                         selectable-button">
                     Оттенки зеленого
                 </button>
-                <button onclick="toggleButtonSelectionStatus(this)"
-                        class="w3-panel w3-button w3-padding-16 w3-round-medium w3-red
+                <button onclick="toggleFilterButtonSelectionStatus(this)"
+                        class="w3-panel w3-button w3-round-medium w3-red
                         selectable-button">
                     Оттенки красного
                 </button>
-                <button onclick="toggleButtonSelectionStatus(this)"
-                        class="w3-panel w3-button w3-padding-16 w3-round-medium w3-blue
+                <button onclick="toggleFilterButtonSelectionStatus(this)"
+                        class="w3-panel w3-button w3-round-medium w3-blue
                         selectable-button">
                     Оттенки синего
                 </button>
-                <button onclick="toggleButtonSelectionStatus(this)"
-                        class="w3-panel w3-button w3-padding-16 w3-round-medium w3-indigo
+                <button onclick="toggleFilterButtonSelectionStatus(this)"
+                        class="w3-panel w3-button w3-round-medium w3-indigo
                         selectable-button">
                     Негатив
                 </button>
-                <button onclick="toggleButtonSelectionStatus(this)"
-                        class="w3-panel w3-button w3-padding-16 w3-round-medium w3-indigo
+                <button onclick="toggleFilterButtonSelectionStatus(this)"
+                        class="w3-panel w3-button w3-round-medium w3-indigo
                         selectable-button">
                     Раскраска
                 </button>
             </div>
             <div class="kit-flex kit-flex-downward">
                 <h3 class="kit-flex-center">Фильтры 2</h3>
-                <button onclick="toggleButtonSelectionStatus(this)"
-                        class="w3-panel w3-button w3-padding-16 w3-round-medium w3-indigo
+                <button onclick="toggleFilterButtonSelectionStatus(this)"
+                        class="w3-panel w3-button w3-round-medium w3-indigo
                         selectable-button">
                     Размытие
                 </button>
-                <button onclick="toggleButtonSelectionStatus(this)"
-                        class="w3-panel w3-button w3-padding-16 w3-round-medium w3-indigo
+                <button onclick="toggleFilterButtonSelectionStatus(this)"
+                        class="w3-panel w3-button w3-round-medium w3-indigo
                         selectable-button">
                     Обесцвечивание
                 </button>
-                <button onclick="toggleButtonSelectionStatus(this)"
-                        class="w3-panel w3-button w3-padding-16 w3-round-medium w3-khaki
+                <button onclick="toggleFilterButtonSelectionStatus(this)"
+                        class="w3-panel w3-button w3-round-medium w3-khaki
                         selectable-button">
                     Сепия
                 </button>
-                <button onclick="toggleButtonSelectionStatus(this)"
-                        class="w3-panel w3-button w3-padding-16 w3-round-medium w3-indigo
+                <button onclick="toggleFilterButtonSelectionStatus(this)"
+                        class="w3-panel w3-button w3-round-medium w3-indigo
                         selectable-button">
                     Псевдоцвет
                 </button>
-                <button onclick="toggleButtonSelectionStatus(this)"
-                        class="w3-panel w3-button w3-padding-16 w3-round-medium w3-indigo
+                <button onclick="toggleFilterButtonSelectionStatus(this)"
+                        class="w3-panel w3-button w3-round-medium w3-indigo
                         selectable-button">
                     Винтаж
                 </button>
-                <button id="apply-filters-button" class="w3-panel w3-button w3-padding-16 w3-round-medium w3-green w3-ripple">
+                <button id="apply-filters-button" class="w3-panel w3-button w3-round-medium w3-green w3-disabled">
                     Применить
                 </button>
             </div>
             @RenderBody()
         <div class="w3-container kit-flex kit-flex-downward">
             <h3 class="kit-flex-center">Трансформация</h3>
-            <button onclick="toggleButtonSelectionStatus(this), toggleElement('rotate-options')" class="w3-panel w3-padding-16 w3-button w3-round-medium selectable-button">
+            <button id="rotate-button" onclick="toggleElement('rotate-options')"
+                    class="w3-panel w3-padding-16 w3-button w3-round-medium">
                 Повернуть
             </button>
-            <div id="rotate-options" class="w3-hide w3-border kit-flex kit-flex-downward">
+            <div id="rotate-options" class="w3-hide kit-flex kit-flex-downward">
                 <button class="w3-panel w3-padding-16 w3-button w3-round-medium">На 90&deg; против часовой</button>
                 <button class="w3-panel w3-padding-16 w3-button w3-round-medium">На 90&deg; по часовой</button>
                 <button class="w3-panel w3-padding-16 w3-button w3-round-medium">На 180&deg;</button>
