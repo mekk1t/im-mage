@@ -3,9 +3,10 @@
     element.classList.toggle("w3-hide");
 }
 
-function calculateImageSize() {
-    let currentSize = document.getElementById("zoom-input");
-    let sizeOutput = document.getElementById("image-size");
+function calculateInput(containerId) {
+    let container = document.getElementById(containerId);
+    let currentSize = container.querySelector('input');
+    let sizeOutput = container.querySelector('output');
     sizeOutput.value = `${currentSize.value}%`;
 }
 function toggleButtonSelectionStatus(button) {

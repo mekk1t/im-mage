@@ -92,20 +92,32 @@
                 </button>
             </div>
             @RenderBody()
-            <div class="w3-container kit-flex kit-flex-downward">
-                <h3 class="kit-flex-center">Трансформация</h3>
-                <a href="#" class="w3-panel w3-padding-16 w3-button w3-round-medium">Повернуть</a>
-                <a href="#" class="w3-panel w3-padding-16 w3-button w3-round-medium">Отразить</a>
-                <button class="w3-panel w3-padding-16 w3-button w3-round-medium" onclick="toggleElement('zoom')">Масштаб</button>
-                <div id="zoom" class="w3-hide w3-center">
-                    <span class="zoom-min-value">0%</span>
-                    <input oninput="calculateImageSize()" id="zoom-input" type="range" min="0" max="200" value="100" step="10" />
-                    <span class="zoom-max-value">200%</span>
-                    <output id="image-size">
-                        100%
-                    </output>
-                </div>
+        <div class="w3-container kit-flex kit-flex-downward">
+            <h3 class="kit-flex-center">Трансформация</h3>
+            <a href="#" class="w3-panel w3-padding-16 w3-button w3-round-medium">Повернуть</a>
+            <a href="#" class="w3-panel w3-padding-16 w3-button w3-round-medium">Отразить</a>
+            <button class="w3-panel w3-padding-16 w3-button w3-round-medium" onclick="toggleElement('zoom')">Масштаб</button>
+            <div id="zoom" class="w3-hide w3-center">
+                <span class="input-min-value">0%</span>
+                <input oninput="calculateInput('zoom')" type="range" min="0" max="200" value="100" step="10" />
+                <span class="input-max-value">200%</span> <br />
+                <output>100%</output>
             </div>
+            <button class="w3-panel w3-padding-16 w3-button w3-round-medium" onclick="toggleElement('brightness')">Яркость</button>
+            <div id="brightness" class="w3-hide w3-center">
+                <span class="input-min-value">0%</span>
+                <input oninput="calculateInput('brightness')" type="range" min="0" max="200" value="100" step="10" />
+                <span class="input-max-value">200%</span> <br />
+                <output>100%</output>
+            </div>
+            <button class="w3-panel w3-padding-16 w3-button w3-round-medium" onclick="toggleElement('contrast')">Контрастность</button>
+            <div id="contrast" class="w3-hide w3-center">
+                <span class="input-min-value">0%</span>
+                <input oninput="calculateInput('contrast')" type="range" min="0" max="200" value="100" step="10" />
+                <span class="input-max-value">200%</span> <br />
+                <output>100%</output>
+            </div>
+        </div>
         </div>
         <div class="w3-container w3-center action-buttons">
             <button class="w3-button w3-hover-red">Сброс</button>
