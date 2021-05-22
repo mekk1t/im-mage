@@ -13,13 +13,13 @@
         <div class="w3-dropdown-hover">
             <button class="w3-button">Файл</button>
             <div class="w3-dropdown-content w3-bar-block w3-border">
-                <a href="#" class="w3-bar-item w3-button">Выбрать</a>
+                <a href="#" class="w3-bar-item w3-button-hover w3-button">Выбрать</a>
                 <div class="w3-bar-item w3-dropdown-hover">
                     Сохранить
                     <div class="w3-dropdown-content w3-bar-block w3-border file-extensions-dropdown">
-                        <a href="#" class="w3-bar-item w3-button">как JPG</a>
-                        <a href="#" class="w3-bar-item w3-button">как PNG</a>
-                        <a href="#" class="w3-bar-item w3-button">как BMP</a>
+                        <a href="#" class="w3-bar-item w3-button w3-button-hover">как JPG</a>
+                        <a href="#" class="w3-bar-item w3-button w3-button-hover">как PNG</a>
+                        <a href="#" class="w3-bar-item w3-button w3-button-hover">как BMP</a>
                     </div>
                 </div>
             </div>
@@ -94,30 +94,30 @@
             <div class="kit-flex kit-flex-downward">
                 @RenderBody()
                 <div class="w3-container w3-margin-top kit-flex-center action-buttons">
-                    <button class="w3-button w3-hover-red">Сброс</button>
-                    <button class="w3-button w3-hover-amber">Отменить</button>
+                    <button class="w3-button w3-hover-red w3-ripple">Сброс</button>
+                    <button class="w3-button w3-hover-amber w3-ripple">Отменить</button>
                 </div>
             </div>
         <div class="w3-container kit-flex kit-flex-downward">
             <h3 class="kit-flex-center">Трансформация</h3>
             <button id="rotate-button" onclick="toggleElement('rotate-options')"
-                    class="w3-panel w3-padding-16 w3-button w3-round-medium">
+                    class="w3-panel w3-padding-16 w3-button w3-button-hover w3-round-medium w3-ripple">
                 Повернуть
             </button>
             <div id="rotate-options" class="w3-hide kit-flex kit-flex-downward">
-                <button class="w3-panel w3-padding-16 w3-button w3-round-medium">На 90&deg; против часовой</button>
-                <button class="w3-panel w3-padding-16 w3-button w3-round-medium">На 90&deg; по часовой</button>
-                <button class="w3-panel w3-padding-16 w3-button w3-round-medium">На 180&deg;</button>
+                <button class="w3-panel w3-padding-16 w3-button w3-button-hover w3-round-medium w3-ripple">На 90&deg; против часовой</button>
+                <button class="w3-panel w3-padding-16 w3-button w3-button-hover w3-round-medium w3-ripple">На 90&deg; по часовой</button>
+                <button class="w3-panel w3-padding-16 w3-button w3-button-hover w3-round-medium w3-ripple">На 180&deg;</button>
             </div>
-            <button href="#" class="w3-panel w3-padding-16 w3-button w3-button-hover w3-round-medium">Отразить</button>
-            <button class="w3-panel w3-padding-16 w3-button w3-button-hover w3-round-medium" onclick="toggleElement('zoom')">Масштаб</button>
+            <button href="#" class="w3-panel w3-padding-16 w3-button w3-button-hover w3-round-medium w3-ripple">Отразить</button>
+            <button class="w3-panel w3-padding-16 w3-button w3-button-hover w3-round-medium w3-ripple" onclick="toggleElement('zoom')">Масштаб</button>
             <div id="zoom" class="w3-hide w3-center">
                 <span class="input-min-value">0%</span>
                 <input oninput="calculateInput('zoom')" type="range" min="0" max="200" value="100" step="10" />
                 <span class="input-max-value">200%</span> <br />
                 <output>100%</output>
             </div>
-            <button class="w3-panel w3-padding-16 w3-button w3-button-hover w3-round-medium" onclick="toggleElement('brightness')">Яркость</button>
+            <button class="w3-panel w3-padding-16 w3-button w3-button-hover w3-round-medium w3-ripple" onclick="toggleElement('brightness')">Яркость</button>
             <div id="brightness" class="w3-hide w3-center">
                 <span class="input-min-value">0%</span>
                 <input oninput="calculateInput('brightness')" type="range" min="0" max="200" value="100" step="10" />
