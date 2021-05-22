@@ -9,31 +9,36 @@
 </head>
 <body>
     <header class="kit-flex kit-flex-start w3-container">
-        <button class="w3-button">Новый файл</button>
-        <button class="w3-button">Сохранить</button>
         <div class="w3-dropdown-hover">
-            <button class="w3-button">Фильтры</button>
+            <button class="w3-button">Файл</button>
             <div class="w3-dropdown-content w3-bar-block w3-border">
-                <a href="#" class="w3-bar-item w3-button">Черно-белый</a>
-                <a href="#" class="w3-bar-item w3-button">Оттенки зеленого</a>
-                <a href="#" class="w3-bar-item w3-button">Оттенки красного</a>
-            </div>
-        </div>
-        <div class="w3-dropdown-hover">
-            <button class="w3-button">Трансформация</button>
-            <div class="w3-dropdown-content w3-bar-block w3-border">
-                <a href="#" class="w3-bar-item w3-button">Повернуть</a>
-                <a href="#" class="w3-bar-item w3-button">Отразить</a>
-                <a href="#" class="w3-bar-item w3-button">Развернуть</a>
+                <a href="#" class="w3-bar-item w3-button">Выбрать</a>
+                <a href="#" class="w3-bar-item w3-button">Сохранить</a>
             </div>
         </div>
     </header>
     <main>
-        <div class="w3-container w3-border w3-padding-16 kit-flex">
+        <div class="w3-border w3-padding-16 kit-grid kit-grid-3">
+            <div class="w3-container kit-flex kit-flex-downward">
+                <h3 class="kit-flex-center">Фильтры</h3>
+                <a href="#" class="w3-panel w3-button w3-padding-16 w3-gray">Черно-белый</a>
+                <a href="#" class="w3-panel w3-button w3-padding-16 w3-light-green">Оттенки зеленого</a>
+                <a href="#" class="w3-panel w3-button w3-padding-16 w3-pale-red">Оттенки красного</a>
+            </div>
             @RenderBody()
+            <div class="w3-container kit-flex kit-flex-downward">
+                <h3 class="kit-flex-center">Трансформация</h3>
+                <a href="#" class="w3-panel w3-padding-16 w3-button">Повернуть</a>
+                <a href="#" class="w3-panel w3-padding-16 w3-button">Отразить</a>
+                <a href="#" class="w3-panel w3-padding-16 w3-button">Развернуть</a>
+            </div>
         </div>
     </main>
     <footer class="w3-container">
+        <p class="w3-small">
+            Графический редактор &laquo;ImMage&raquo; - &copy; 2021. Разработан студентом группы 8025М
+            <a target="_blank" href="https://vk.com/mekk1t">Никитой Калимовым</a>.
+        </p>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

@@ -1,6 +1,9 @@
-.kit-center {
-    margin-left: auto;
-    margin-right: auto;
+.kit-grid {
+    display: grid;
+}
+
+.kit-grid-3 {
+    grid-template-columns: 1fr 1fr 1fr;
 }
 
 .kit-flex {
@@ -9,6 +12,15 @@
 
 .kit-flex-start {
     justify-content: start;
+}
+
+.kit-flex-center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.kit-flex-downward {
+    flex-direction: column;
 }
 
 .kit-width-100 {
