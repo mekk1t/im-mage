@@ -28,7 +28,7 @@
     <main>
         <div class="w3-border w3-padding-16 editor-container">
             <div class="w3-container kit-flex kit-flex-downward">
-                <h3 class="kit-flex-center">Фильтры</h3>
+                <h3 class="kit-flex-center">Фильтры 1</h3>
                 <button onclick="toggleButtonSelectionStatus(this)"
                         class="w3-panel w3-button w3-padding-16 w3-round-medium w3-white w3-ripple
                         selectable-button">
@@ -49,44 +49,47 @@
                         selectable-button">
                     Оттенки синего
                 </button>
-                <button id="toggle-more-filters-button" onclick="toggleFilters()" class="w3-panel w3-button w3-ripple w3-padding-16 w3-round-medium w3-blue" >Показать другие</button>
-                <div id="more-filters" class="kit-flex kit-flex-downward w3-hide">
-                    <button onclick="toggleButtonSelectionStatus(this)"
-                            class="w3-panel w3-button w3-padding-16 w3-round-medium w3-khaki
+                <button onclick="toggleButtonSelectionStatus(this)"
+                        class="w3-panel w3-button w3-padding-16 w3-round-medium w3-indigo
                         selectable-button">
-                        Размытие
-                    </button>
-                    <button onclick="toggleButtonSelectionStatus(this)"
-                            class="w3-panel w3-button w3-padding-16 w3-round-medium w3-khaki
+                    Негатив
+                </button>
+                <button onclick="toggleButtonSelectionStatus(this)"
+                        class="w3-panel w3-button w3-padding-16 w3-round-medium w3-indigo
                         selectable-button">
-                        Обесцвечивание
-                    </button>
-                    <button onclick="toggleButtonSelectionStatus(this)"
-                            class="w3-panel w3-button w3-padding-16 w3-round-medium w3-khaki
+                    Раскраска
+                </button>
+            </div>
+            <div class="kit-flex kit-flex-downward">
+                <h3 class="kit-flex-center">Фильтры 2</h3>
+                <button onclick="toggleButtonSelectionStatus(this)"
+                        class="w3-panel w3-button w3-padding-16 w3-round-medium w3-indigo
                         selectable-button">
-                        Сепия
-                    </button>
-                    <button onclick="toggleButtonSelectionStatus(this)"
-                            class="w3-panel w3-button w3-padding-16 w3-round-medium w3-khaki
+                    Размытие
+                </button>
+                <button onclick="toggleButtonSelectionStatus(this)"
+                        class="w3-panel w3-button w3-padding-16 w3-round-medium w3-indigo
                         selectable-button">
-                        Псевдоцвет
-                    </button>
-                    <button onclick="toggleButtonSelectionStatus(this)"
-                            class="w3-panel w3-button w3-padding-16 w3-round-medium w3-khaki
+                    Обесцвечивание
+                </button>
+                <button onclick="toggleButtonSelectionStatus(this)"
+                        class="w3-panel w3-button w3-padding-16 w3-round-medium w3-khaki
                         selectable-button">
-                        Негатив
-                    </button>
-                    <button onclick="toggleButtonSelectionStatus(this)"
-                            class="w3-panel w3-button w3-padding-16 w3-round-medium w3-khaki
+                    Сепия
+                </button>
+                <button onclick="toggleButtonSelectionStatus(this)"
+                        class="w3-panel w3-button w3-padding-16 w3-round-medium w3-indigo
                         selectable-button">
-                        Раскраска
-                    </button>
-                    <button onclick="toggleButtonSelectionStatus(this)"
-                            class="w3-panel w3-button w3-padding-16 w3-round-medium w3-khaki
+                    Псевдоцвет
+                </button>
+                <button onclick="toggleButtonSelectionStatus(this)"
+                        class="w3-panel w3-button w3-padding-16 w3-round-medium w3-indigo
                         selectable-button">
-                        Винтаж
-                    </button>
-                </div>
+                    Винтаж
+                </button>
+                <button id="apply-filters-button" class="w3-panel w3-button w3-padding-16 w3-round-medium w3-green w3-ripple">
+                    Применить
+                </button>
             </div>
             @RenderBody()
             <div class="w3-container kit-flex kit-flex-downward">
@@ -107,7 +110,6 @@
         <div class="w3-container w3-center action-buttons">
             <button class="w3-button w3-hover-red">Сброс</button>
             <button class="w3-button w3-hover-amber">Отменить</button>
-            <button class="w3-button w3-hover-green w3-disabled">Применить</button>
         </div>
     </main>
     <footer>
