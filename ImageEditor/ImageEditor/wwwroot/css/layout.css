@@ -11,12 +11,12 @@
     justify-content: start;
 }
 
-.kit-width-300 {
-    width: 300px;
-}
-
 .kit-width-100 {
     width: 100px;
+}
+
+.kit-width-300 {
+    width: 300px;
 }
 
 .kit-width-500 {
