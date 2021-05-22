@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31229.75
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iMMage", "iMMage\iMMage.csproj", "{C4B5A40C-7255-481A-B358-62214B76AA99}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageEditor", "ImageEditor\ImageEditor.csproj", "{4733F65E-4FD5-4675-B418-21736385AA45}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C4B5A40C-7255-481A-B358-62214B76AA99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C4B5A40C-7255-481A-B358-62214B76AA99}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C4B5A40C-7255-481A-B358-62214B76AA99}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C4B5A40C-7255-481A-B358-62214B76AA99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4733F65E-4FD5-4675-B418-21736385AA45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4733F65E-4FD5-4675-B418-21736385AA45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4733F65E-4FD5-4675-B418-21736385AA45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4733F65E-4FD5-4675-B418-21736385AA45}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {1BEB9905-8ECB-4250-B0E8-1E0B2CCBE64F}
+		SolutionGuid = {098ED17C-9E05-4FEA-B0C7-CD3F190B73F3}
 	EndGlobalSection
 EndGlobal

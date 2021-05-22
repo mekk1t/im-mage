@@ -1,0 +1,58 @@
+﻿main {
+    background: url(/images/image.jpg) no-repeat;
+    background-size: cover;
+}
+
+.editor-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 4fr 2fr;
+}
+
+.editor-container img {
+    height: 450px;
+}
+
+.action-buttons button {
+    margin-bottom: 10px;
+}
+
+.file-extensions-dropdown {
+    left: 158px;
+    bottom: -78px;
+}
+
+.input-max-value {
+    margin-left: 5px;
+}
+
+.input-min-value {
+    margin-right: 5px;
+}
+
+.selectable-button{
+    border-width: 2px;
+    border-color: transparent;
+    border-style: solid;
+}
+
+.selectable-button:not(.selected){
+    opacity: 0.5;
+}
+
+.selected {
+    border: 2px solid black;
+    opacity: 1;
+}
+
+.w3-button:hover {
+    opacity: 1;
+}
+
+#apply-filters-button {
+    border: 2px solid transparent;
+}
+
+div#rotate-options button.w3-button:hover {
+    color: #000 !important;
+    background-color: #ccc !important
+}

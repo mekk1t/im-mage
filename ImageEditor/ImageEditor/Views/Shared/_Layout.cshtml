@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>I'm-Mage</title>
+    <link rel="stylesheet" href="~/css/w3.css" />
+    <link rel="stylesheet" href="~/css/layout.css">
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header class="kit-flex kit-flex-start w3-container">
+        <div class="w3-dropdown-hover">
+            <button class="w3-button">Файл</button>
+            <div class="w3-dropdown-content w3-bar-block w3-border">
+                <a href="#" class="w3-bar-item w3-button">Выбрать</a>
+                <div class="w3-bar-item w3-dropdown-hover">
+                    Сохранить
+                    <div class="w3-dropdown-content w3-bar-block w3-border file-extensions-dropdown">
+                        <a href="#" class="w3-bar-item w3-button">как JPG</a>
+                        <a href="#" class="w3-bar-item w3-button">как PNG</a>
+                        <a href="#" class="w3-bar-item w3-button">как BMP</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="w3-border w3-padding-16 editor-container">
+            <div class="w3-container kit-flex kit-flex-downward">
+                <h3 class="kit-flex-center">Фильтры 1</h3>
+                <button onclick="toggleButtonSelectionStatus(this)"
+                        class="w3-panel w3-button w3-padding-16 w3-round-medium w3-white w3-ripple
+                        selectable-button">
+                    Черно-белый
+                </button>
+                <button onclick="toggleButtonSelectionStatus(this)"
+                        class="w3-panel w3-button w3-padding-16 w3-round-medium w3-green
+                        selectable-button">
+                    Оттенки зеленого
+                </button>
+                <button onclick="toggleButtonSelectionStatus(this)"
+                        class="w3-panel w3-button w3-padding-16 w3-round-medium w3-red
+                        selectable-button">
+                    Оттенки красного
+                </button>
+                <button onclick="toggleButtonSelectionStatus(this)"
+                        class="w3-panel w3-button w3-padding-16 w3-round-medium w3-blue
+                        selectable-button">
+                    Оттенки синего
+                </button>
+                <button onclick="toggleButtonSelectionStatus(this)"
+                        class="w3-panel w3-button w3-padding-16 w3-round-medium w3-indigo
+                        selectable-button">
+                    Негатив
+                </button>
+                <button onclick="toggleButtonSelectionStatus(this)"
+                        class="w3-panel w3-button w3-padding-16 w3-round-medium w3-indigo
+                        selectable-button">
+                    Раскраска
+                </button>
+            </div>
+            <div class="kit-flex kit-flex-downward">
+                <h3 class="kit-flex-center">Фильтры 2</h3>
+                <button onclick="toggleButtonSelectionStatus(this)"
+                        class="w3-panel w3-button w3-padding-16 w3-round-medium w3-indigo
+                        selectable-button">
+                    Размытие
+                </button>
+                <button onclick="toggleButtonSelectionStatus(this)"
+                        class="w3-panel w3-button w3-padding-16 w3-round-medium w3-indigo
+                        selectable-button">
+                    Обесцвечивание
+                </button>
+                <button onclick="toggleButtonSelectionStatus(this)"
+                        class="w3-panel w3-button w3-padding-16 w3-round-medium w3-khaki
+                        selectable-button">
+                    Сепия
+                </button>
+                <button onclick="toggleButtonSelectionStatus(this)"
+                        class="w3-panel w3-button w3-padding-16 w3-round-medium w3-indigo
+                        selectable-button">
+                    Псевдоцвет
+                </button>
+                <button onclick="toggleButtonSelectionStatus(this)"
+                        class="w3-panel w3-button w3-padding-16 w3-round-medium w3-indigo
+                        selectable-button">
+                    Винтаж
+                </button>
+                <button id="apply-filters-button" class="w3-panel w3-button w3-padding-16 w3-round-medium w3-green w3-ripple">
+                    Применить
+                </button>
+            </div>
+            @RenderBody()
+        <div class="w3-container kit-flex kit-flex-downward">
+            <h3 class="kit-flex-center">Трансформация</h3>
+            <button onclick="toggleButtonSelectionStatus(this), toggleElement('rotate-options')" class="w3-panel w3-padding-16 w3-button w3-round-medium selectable-button">
+                Повернуть
+            </button>
+            <div id="rotate-options" class="w3-hide w3-border kit-flex kit-flex-downward">
+                <button class="w3-panel w3-padding-16 w3-button w3-round-medium">На 90&deg; против часовой</button>
+                <button class="w3-panel w3-padding-16 w3-button w3-round-medium">На 90&deg; по часовой</button>
+                <button class="w3-panel w3-padding-16 w3-button w3-round-medium">На 180&deg;</button>
+            </div>
+            <button href="#" class="w3-panel w3-padding-16 w3-button w3-round-medium">Отразить</button>
+            <button class="w3-panel w3-padding-16 w3-button w3-round-medium" onclick="toggleElement('zoom')">Масштаб</button>
+            <div id="zoom" class="w3-hide w3-center">
+                <span class="input-min-value">0%</span>
+                <input oninput="calculateInput('zoom')" type="range" min="0" max="200" value="100" step="10" />
+                <span class="input-max-value">200%</span> <br />
+                <output>100%</output>
+            </div>
+            <button class="w3-panel w3-padding-16 w3-button w3-round-medium" onclick="toggleElement('brightness')">Яркость</button>
+            <div id="brightness" class="w3-hide w3-center">
+                <span class="input-min-value">0%</span>
+                <input oninput="calculateInput('brightness')" type="range" min="0" max="200" value="100" step="10" />
+                <span class="input-max-value">200%</span> <br />
+                <output>100%</output>
+            </div>
+            <button class="w3-panel w3-padding-16 w3-button w3-round-medium" onclick="toggleElement('contrast')">Контрастность</button>
+            <div id="contrast" class="w3-hide w3-center">
+                <span class="input-min-value">0%</span>
+                <input oninput="calculateInput('contrast')" type="range" min="0" max="200" value="100" step="10" />
+                <span class="input-max-value">200%</span> <br />
+                <output>100%</output>
+            </div>
+        </div>
+        </div>
+        <div class="w3-container w3-center action-buttons">
+            <button class="w3-button w3-hover-red">Сброс</button>
+            <button class="w3-button w3-hover-amber">Отменить</button>
+        </div>
+    </main>
+    <footer>
+        <p class="w3-margin-left w3-small">
+            Графический редактор &laquo;ImMage&raquo; &copy; 2021.
+            Разработан студентом группы 8025М <a target="_blank" href="https://new.guap.ru">СПбГУАП</a>
+            <a target="_blank" href="https://vk.com/mekk1t">Никитой Калимовым</a>.
+        </p>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,36 @@
+.kit-grid {
+    display: grid;
+}
+
+.kit-grid-3 {
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.kit-flex {
+    display: flex;
+}
+
+.kit-flex-start {
+    justify-content: start;
+}
+
+.kit-flex-center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.kit-flex-downward {
+    flex-direction: column;
+}
+
+.kit-width-100 {
+    width: 100px;
+}
+
+.kit-width-300 {
+    width: 300px;
+}
+
+.kit-width-500 {
+    width: 500px;
+}
