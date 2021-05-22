@@ -27,75 +27,70 @@
     </header>
     <main>
         <div class="w3-border w3-padding-16 editor-container">
-            <div class="w3-container kit-flex kit-flex-downward">
-                <h3 class="kit-flex-center">Фильтры 1</h3>
-                <button onclick="toggleFilterButtonSelectionStatus(this)"
-                        class="w3-panel w3-button w3-round-medium w3-white w3-ripple
+            <div class="kit-grid kit-grid-2 filters-grid">
+                <h3 class="kit-grid-span-2 kit-flex-center">Фильтры</h3>
+                <div class="w3-container kit-flex kit-flex-downward">
+                    <button onclick="toggleFilterButtonSelectionStatus(this)"
+                            class="w3-panel w3-button w3-round-medium w3-white w3-ripple
                         selectable-button">
-                    Черно-белый
-                </button>
-                <button onclick="toggleFilterButtonSelectionStatus(this)"
-                        class="w3-panel w3-button w3-round-medium w3-green
+                        Черно-белый
+                    </button>
+                    <button onclick="toggleFilterButtonSelectionStatus(this)"
+                            class="w3-panel w3-button w3-round-medium w3-green
                         selectable-button">
-                    Оттенки зеленого
-                </button>
-                <button onclick="toggleFilterButtonSelectionStatus(this)"
-                        class="w3-panel w3-button w3-round-medium w3-red
+                        Оттенки зеленого
+                    </button>
+                    <button onclick="toggleFilterButtonSelectionStatus(this)"
+                            class="w3-panel w3-button w3-round-medium w3-red
                         selectable-button">
-                    Оттенки красного
-                </button>
-                <button onclick="toggleFilterButtonSelectionStatus(this)"
-                        class="w3-panel w3-button w3-round-medium w3-blue
+                        Оттенки красного
+                    </button>
+                    <button onclick="toggleFilterButtonSelectionStatus(this)"
+                            class="w3-panel w3-button w3-round-medium w3-blue
                         selectable-button">
-                    Оттенки синего
-                </button>
-                <button onclick="toggleFilterButtonSelectionStatus(this)"
-                        class="w3-panel w3-button w3-round-medium w3-indigo
+                        Оттенки синего
+                    </button>
+                    <button onclick="toggleFilterButtonSelectionStatus(this)"
+                            class="w3-panel w3-button w3-round-medium w3-indigo
                         selectable-button">
-                    Негатив
-                </button>
-                <button onclick="toggleFilterButtonSelectionStatus(this)"
-                        class="w3-panel w3-button w3-round-medium w3-indigo
+                        Негатив
+                    </button>
+                </div>
+                <div class="kit-flex kit-flex-downward">
+                    <button onclick="toggleFilterButtonSelectionStatus(this)"
+                            class="w3-panel w3-button w3-round-medium w3-indigo
                         selectable-button">
-                    Раскраска
-                </button>
-            </div>
-            <div class="kit-flex kit-flex-downward">
-                <h3 class="kit-flex-center">Фильтры 2</h3>
-                <button onclick="toggleFilterButtonSelectionStatus(this)"
-                        class="w3-panel w3-button w3-round-medium w3-indigo
+                        Размытие
+                    </button>
+                    <button onclick="toggleFilterButtonSelectionStatus(this)"
+                            class="w3-panel w3-button w3-round-medium w3-indigo
                         selectable-button">
-                    Размытие
-                </button>
-                <button onclick="toggleFilterButtonSelectionStatus(this)"
-                        class="w3-panel w3-button w3-round-medium w3-indigo
+                        Обесцвечивание
+                    </button>
+                    <button onclick="toggleFilterButtonSelectionStatus(this)"
+                            class="w3-panel w3-button w3-round-medium w3-khaki
                         selectable-button">
-                    Обесцвечивание
-                </button>
-                <button onclick="toggleFilterButtonSelectionStatus(this)"
-                        class="w3-panel w3-button w3-round-medium w3-khaki
+                        Сепия
+                    </button>
+                    <button onclick="toggleFilterButtonSelectionStatus(this)"
+                            class="w3-panel w3-button w3-round-medium w3-indigo
                         selectable-button">
-                    Сепия
-                </button>
-                <button onclick="toggleFilterButtonSelectionStatus(this)"
-                        class="w3-panel w3-button w3-round-medium w3-indigo
+                        Псевдоцвет
+                    </button>
+                    <button onclick="toggleFilterButtonSelectionStatus(this)"
+                            class="w3-panel w3-button w3-round-medium w3-indigo
                         selectable-button">
-                    Псевдоцвет
-                </button>
-                <button onclick="toggleFilterButtonSelectionStatus(this)"
-                        class="w3-panel w3-button w3-round-medium w3-indigo
-                        selectable-button">
-                    Винтаж
-                </button>
-                <button id="apply-filters-button" class="w3-panel w3-button w3-round-medium w3-green w3-disabled">
-                    Применить
-                </button>
+                        Винтаж
+                    </button>
+                </div>
             </div>
             <div class="kit-flex kit-flex-downward">
                 @RenderBody()
                 <div class="w3-container w3-margin-top kit-flex-center action-buttons">
                     <button class="w3-button w3-hover-red w3-ripple">Сброс</button>
                     <button class="w3-button w3-hover-amber w3-ripple">Отменить</button>
+                    <button id="apply-filters-button" class="w3-button w3-green w3-disabled w3-ripple">Применить</button>
+                    <button class="w3-button w3-hover-blue w3-ripple">Раскрасить</button>
                 </div>
             </div>
         <div class="w3-container kit-flex kit-flex-downward">

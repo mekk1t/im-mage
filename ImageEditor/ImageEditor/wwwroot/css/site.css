@@ -6,7 +6,7 @@
 
 .editor-container {
     display: grid;
-    grid-template-columns: 1fr 1fr 4fr 2fr;
+    grid-template-columns: 1fr 3fr 2fr;
 }
 
 .editor-container img {
@@ -49,15 +49,6 @@
     opacity: 1;
 }
 
-#apply-filters-button {
-    border: 2px solid transparent;
-}
-
-div#rotate-options button.w3-button:hover {
-    color: #000 !important;
-    background-color: #ccc !important
-}
-
 .w3-button-hover:hover {
     color: #000 !important;
     background-color: #ccc !important
@@ -69,4 +60,8 @@ div#rotate-options button.w3-button:hover {
 
 .w3-ripple {
     transition: opacity 0s !important;
+}
+
+.filters-grid {
+    grid-template-rows: 50px auto;
 }
