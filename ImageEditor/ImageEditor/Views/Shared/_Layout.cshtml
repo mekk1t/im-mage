@@ -91,7 +91,13 @@
                     Применить
                 </button>
             </div>
-            @RenderBody()
+            <div class="kit-flex kit-flex-downward">
+                @RenderBody()
+                <div class="w3-container w3-margin-top kit-flex-center action-buttons">
+                    <button class="w3-button w3-hover-red">Сброс</button>
+                    <button class="w3-button w3-hover-amber">Отменить</button>
+                </div>
+            </div>
         <div class="w3-container kit-flex kit-flex-downward">
             <h3 class="kit-flex-center">Трансформация</h3>
             <button id="rotate-button" onclick="toggleElement('rotate-options')"
@@ -126,10 +132,6 @@
                 <output>100%</output>
             </div>
         </div>
-        </div>
-        <div class="w3-container w3-center action-buttons">
-            <button class="w3-button w3-hover-red">Сброс</button>
-            <button class="w3-button w3-hover-amber">Отменить</button>
         </div>
     </main>
     <footer>
