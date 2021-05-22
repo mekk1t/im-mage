@@ -46,3 +46,7 @@
 .kit-width-500 {
     width: 500px;
 }
+
+.kit-width-full {
+    width: 100%;
+}

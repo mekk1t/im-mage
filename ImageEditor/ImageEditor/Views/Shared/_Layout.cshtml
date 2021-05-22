@@ -95,30 +95,30 @@
             </div>
             <div class="w3-container kit-flex kit-flex-downward">
                 <h3 class="kit-flex-center">Трансформация</h3>
-                <div class="w3-dropdown-hover">
-                    <button class="w3-button w3-indigo w3-padding-16 w3-round-medium">Повернуть</button>
-                    <div class="w3-dropdown-content w3-bar-block w3-border">
+                <div class="kit-flex-center w3-half w3-dropdown-hover">
+                    <button class="kit-width-full w3-button w3-indigo w3-round-medium">Повернуть</button>
+                    <div class="kit-width-full w3-dropdown-content w3-bar-block w3-border">
                         <button class="w3-bar-item w3-button-hover w3-button">На 90&deg; против часовой</button>
                         <button class="w3-bar-item w3-button-hover w3-button">На 90&deg; по часовой</button>
                         <button class="w3-bar-item w3-button-hover w3-button">На 180&deg;</button>
                     </div>
                 </div>
-                <button href="#" class="w3-panel w3-padding-16 w3-button w3-indigo w3-round-medium w3-ripple">Отразить</button>
-                <button class="w3-panel w3-padding-16 w3-button w3-indigo w3-round-medium w3-ripple" onclick="toggleElement('zoom')">Масштаб</button>
+                <button href="#" class="kit-flex-center w3-half w3-panel w3-button w3-indigo w3-round-medium w3-ripple">Отразить</button>
+                <button class="kit-flex-center w3-half w3-panel w3-button w3-indigo w3-round-medium w3-ripple" onclick="toggleElement('zoom')">Масштаб</button>
                 <div id="zoom" class="w3-hide w3-center">
                     <span class="input-min-value">0%</span>
                     <input oninput="calculateInput('zoom')" type="range" min="0" max="200" value="100" step="10" />
                     <span class="input-max-value">200%</span> <br />
                     <output>100%</output>
                 </div>
-                <button class="w3-panel w3-padding-16 w3-button w3-indigo w3-round-medium w3-ripple" onclick="toggleElement('brightness')">Яркость</button>
+                <button class="kit-flex-center w3-half w3-panel w3-button w3-indigo w3-round-medium w3-ripple" onclick="toggleElement('brightness')">Яркость</button>
                 <div id="brightness" class="w3-hide w3-center">
                     <span class="input-min-value">0%</span>
                     <input oninput="calculateInput('brightness')" type="range" min="0" max="200" value="100" step="10" />
                     <span class="input-max-value">200%</span> <br />
                     <output>100%</output>
                 </div>
-                <button class="w3-panel w3-padding-16 w3-button w3-indigo w3-round-medium w3-ripple" onclick="toggleElement('contrast')">Контрастность</button>
+                <button class="kit-flex-center w3-half w3-panel w3-button w3-indigo w3-round-medium w3-ripple" onclick="toggleElement('contrast')">Контрастность</button>
                 <div id="contrast" class="w3-hide w3-center">
                     <span class="input-min-value">0%</span>
                     <input oninput="calculateInput('contrast')" type="range" min="0" max="200" value="100" step="10" />

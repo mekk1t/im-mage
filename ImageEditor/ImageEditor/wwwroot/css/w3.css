@@ -414,10 +414,10 @@ a {
         display: block
     }
 
-    .w3-dropdown-hover:first-child, .w3-dropdown-click:hover {
+    /*.w3-dropdown-hover:first-child, .w3-dropdown-click:hover {
         background-color: #ccc;
         color: #000
-    }
+    }*/
 
         .w3-dropdown-hover:hover > .w3-button:first-child, .w3-dropdown-click:hover > .w3-button:first-child {
             background-color: #ccc;

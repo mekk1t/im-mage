@@ -6,11 +6,24 @@
 
 .editor-container {
     display: grid;
-    grid-template-columns: 1fr 3fr 2fr;
+    grid-template-columns: 1fr 2fr 1fr;
 }
 
 .editor-container img {
     height: 450px;
+}
+
+.editor-container div.w3-container:last-child button {
+    padding: 7px;
+}
+
+.editor-container div.w3-container:last-child div.w3-dropdown-hover {
+    margin-bottom: 15px;
+}
+
+.editor-container div.w3-container:last-child div.w3-dropdown-content {
+    right: 130px;
+    top: -1px;
 }
 
 .action-buttons button {
