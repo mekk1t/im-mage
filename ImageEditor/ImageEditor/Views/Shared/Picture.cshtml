@@ -1,0 +1,11 @@
+﻿@model PictureViewModel
+
+@if (Model == null || string.IsNullOrEmpty(Model.Base64))
+{
+    <img />
+    <p class="w3-center"><i>Файл не выбран</i></p>
+}
+else
+{
+    <img class="kit-flex-center" src="data:image/png;base64, @(Model.Base64)" alt="Картинка" />
+}

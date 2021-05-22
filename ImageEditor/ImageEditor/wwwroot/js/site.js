@@ -32,3 +32,8 @@ function toggleFilters() {
 
     moreFiltersDiv.classList.toggle("w3-hide");
 }
+
+function rotateImage() {
+    let image = $("img");
+
+}
