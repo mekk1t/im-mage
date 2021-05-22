@@ -29,22 +29,17 @@
     margin-right: 5px;
 }
 
-.selectable-button-border-white {
-    border: 5px solid white;
+.selectable-button{
+    border-width: 2px;
+    border-color: transparent;
+    border-style: solid;
 }
 
-.selectable-button-border-red {
-    border: 5px solid red;
-}
-
-.selectable-button-border-green {
-    border: 5px solid green;
-}
-
-.selectable-button-border-blue {
-    border: 5px solid blue;
+.selectable-button:not(.selected){
+    opacity: 0.5;
 }
 
 .selected {
-    border: 5px dashed black;
+    border: 2px solid black;
+    opacity: 1;
 }
