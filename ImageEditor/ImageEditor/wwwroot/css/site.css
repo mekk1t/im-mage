@@ -15,3 +15,8 @@
 .action-buttons button {
     margin-bottom: 10px;
 }
+
+.file-extensions-dropdown {
+    left: 158px;
+    bottom: -78px;
+}
