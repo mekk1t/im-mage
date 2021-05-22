@@ -39,16 +39,15 @@
                 <a href="#" class="w3-panel w3-padding-16 w3-button w3-round-medium">Повернуть</a>
                 <a href="#" class="w3-panel w3-padding-16 w3-button w3-round-medium">Отразить</a>
                 <a href="#" class="w3-panel w3-padding-16 w3-button w3-round-medium">Развернуть</a>
-                <label class="w3-panel w3-padding-16 w3-button w3-round-medium" onclick="toggleElement('zoom-out')" for="zoom-out">Уменьшить</label>
-                <div>
-
+                <button class="w3-panel w3-padding-16 w3-button w3-round-medium" onclick="toggleElement('zoom')">Масштаб</button>
+                <div id="zoom" class="w3-hide w3-center">
+                    <span class="zoom-min-value">0%</span>
+                    <input oninput="calculateImageSize()" id="zoom-input" type="range" min="0" max="200" value="100" step="10" />
+                    <span class="zoom-max-value">200%</span>
+                    <output id="image-size">
+                        100%
+                    </output>
                 </div>
-                <input class="w3-hide" id="zoom-out" type="range" min="0" max="100" />
-                <label class="w3-panel w3-padding-16 w3-button w3-round-medium" onclick="toggleElement('zoom-in')" for="zoom-in">Увеличить</label>
-                <div>
-
-                </div>
-                <input class="w3-hide" id="zoom-in" type="range" min="0" max="100" />
             </div>
         </div>
         <div class="w3-container w3-center action-buttons">

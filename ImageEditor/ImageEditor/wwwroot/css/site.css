@@ -20,3 +20,11 @@
     left: 158px;
     bottom: -78px;
 }
+
+.zoom-max-value {
+    margin-left: 5px;
+}
+
+.zoom-min-value {
+    margin-right: 5px;
+}
