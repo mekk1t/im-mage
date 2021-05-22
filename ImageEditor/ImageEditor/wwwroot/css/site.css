@@ -1,3 +1,17 @@
 ﻿main {
-    background: 0 100% url(/images/image.jpg) no-repeat;
+    background: url(/images/image.jpg) no-repeat;
+    background-size: cover;
+}
+
+.editor-container {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+}
+
+.editor-container img {
+    height: 450px;
+}
+
+.action-buttons button {
+    margin-bottom: 10px;
 }

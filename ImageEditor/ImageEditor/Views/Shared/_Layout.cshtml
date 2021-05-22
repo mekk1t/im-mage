@@ -19,7 +19,7 @@
         </div>
     </header>
     <main>
-        <div class="w3-border w3-padding-16 kit-grid kit-grid-3">
+        <div class="w3-border w3-padding-16 editor-container">
             <div class="w3-container kit-flex kit-flex-downward">
                 <h3 class="kit-flex-center">Фильтры</h3>
                 <a href="#" class="w3-panel w3-button w3-padding-16 w3-round-medium w3-gray">Черно-белый</a>
@@ -34,16 +34,19 @@
                 <a href="#" class="w3-panel w3-padding-16 w3-button w3-round-medium">Развернуть</a>
             </div>
         </div>
+        <div class="w3-container w3-center action-buttons">
+            <button class="w3-button w3-hover-amber">Отменить</button>
+            <button class="w3-button w3-hover-red">Сброс</button>
+        </div>
     </main>
-    <footer class="w3-container">
-        <p class="w3-small">
+    <footer>
+        <p class="w3-margin-left w3-small">
             Графический редактор &laquo;ImMage&raquo; &copy; 2021.
             Разработан студентом группы 8025М <a target="_blank" href="https://new.guap.ru">СПбГУАП</a>
             <a target="_blank" href="https://vk.com/mekk1t">Никитой Калимовым</a>.
         </p>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
