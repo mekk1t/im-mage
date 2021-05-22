@@ -3,16 +3,37 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - ImageEditor</title>
+    <title>I'm-Mage</title>
     <link rel="stylesheet" href="~/css/w3.css" />
+    <link rel="stylesheet" href="~/css/layout.css">
 </head>
 <body>
-    <header>
+    <header class="kit-flex kit-flex-start w3-container">
+        <button class="w3-button">Новый файл</button>
+        <button class="w3-button">Сохранить</button>
+        <div class="w3-dropdown-hover">
+            <button class="w3-button">Фильтры</button>
+            <div class="w3-dropdown-content w3-bar-block w3-border">
+                <a href="#" class="w3-bar-item w3-button">Черно-белый</a>
+                <a href="#" class="w3-bar-item w3-button">Оттенки зеленого</a>
+                <a href="#" class="w3-bar-item w3-button">Оттенки красного</a>
+            </div>
+        </div>
+        <div class="w3-dropdown-hover">
+            <button class="w3-button">Трансформация</button>
+            <div class="w3-dropdown-content w3-bar-block w3-border">
+                <a href="#" class="w3-bar-item w3-button">Повернуть</a>
+                <a href="#" class="w3-bar-item w3-button">Отразить</a>
+                <a href="#" class="w3-bar-item w3-button">Развернуть</a>
+            </div>
+        </div>
     </header>
     <main>
-        @RenderBody()
+        <div class="w3-container w3-border w3-padding-16 kit-flex">
+            @RenderBody()
+        </div>
     </main>
-    <footer>
+    <footer class="w3-container">
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

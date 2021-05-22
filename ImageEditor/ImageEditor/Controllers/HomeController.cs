@@ -20,12 +20,9 @@ namespace ImageEditor.Controllers
 
         public IActionResult Index()
         {
-            return View();
-        }
+            var handler = new FileHandler();
 
-        public IActionResult Privacy()
-        {
-            return View();
+            return View("Picture");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

@@ -1,0 +1,12 @@
+.kit-center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.kit-flex {
+    display: flex;
+}
+
+.kit-flex-start {
+    justify-content: start;
+}
