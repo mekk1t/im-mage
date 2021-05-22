@@ -28,3 +28,7 @@
 .zoom-min-value {
     margin-right: 5px;
 }
+
+.selectable-button {
+    border: 5px solid black;
+}
