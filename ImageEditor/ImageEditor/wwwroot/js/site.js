@@ -151,4 +151,5 @@ function reset() {
     let imageBase64 = $("#image-original").val();
     let img = document.querySelector("img");
     img.src = `data:${contentType};base64, ${imageBase64}`;
+    $("#image-base64-hidden").val(imageBase64);
 }
