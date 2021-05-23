@@ -123,10 +123,10 @@
                 <button class="kit-flex-center w3-half w3-panel w3-button w3-indigo w3-round-medium w3-ripple" onclick="toggleElement('brightness')">Яркость</button>
                 <div id="brightness" class="w3-hide w3-center">
                     <span class="input-min-value">0%</span>
-                    <input oninput="calculateInput('brightness')" type="range" min="0" max="200" value="100" step="10" />
+                    <input oninput="calculateInput('brightness'), allowBrightnessOrNot()" type="range" min="0" max="200" value="100" step="10" />
                     <span class="input-max-value">200%</span> <br />
                     <output>100%</output>
-                    <button class="kit-flex-center w3-half w3-panel w3-button w3-hover-green w3-round-medium w3-ripple"
+                    <button style="display: none;" class="kit-flex-center w3-half w3-panel w3-button w3-hover-green w3-round-medium w3-ripple"
                             onclick="changeBrightness()">
                         Применить
                     </button>
@@ -134,10 +134,10 @@
                 <button class="kit-flex-center w3-half w3-panel w3-button w3-indigo w3-round-medium w3-ripple" onclick="toggleElement('contrast')">Контрастность</button>
                 <div id="contrast" class="w3-hide w3-center">
                     <span class="input-min-value">0%</span>
-                    <input oninput="calculateInput('contrast')" type="range" min="0" max="200" value="100" step="10" />
+                    <input oninput="calculateInput('contrast'), allowContrastOrNot()" type="range" min="0" max="200" value="100" step="10" />
                     <span class="input-max-value">200%</span> <br />
                     <output>100%</output>
-                    <button class="kit-flex-center w3-half w3-panel w3-button w3-hover-green w3-round-medium w3-ripple"
+                    <button style="display: none;" class="kit-flex-center w3-half w3-panel w3-button w3-hover-green w3-round-medium w3-ripple"
                             onclick="changeContrast()">Применить
                     </button>
                 </div>
@@ -169,7 +169,5 @@
             </footer>
         </div>
     </div>
-    <input id="image-original" type="hidden" />
-    <input id="content-type-original" type="hidden" />
 </body>
 </html>
