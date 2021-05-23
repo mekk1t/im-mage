@@ -91,8 +91,7 @@
                     @RenderBody()
                 </div>
                 <div class="w3-container w3-margin-top kit-flex-center action-buttons">
-                    <button class="w3-button w3-hover-red w3-ripple">Сброс</button>
-                    <button class="w3-button w3-hover-amber w3-ripple">Отменить</button>
+                    <button onclick="reset()" class="w3-button w3-hover-red w3-ripple">Сброс</button>
                     <button id="apply-filters-button" class="w3-button w3-green w3-disabled w3-ripple">Применить</button>
                     <button class="w3-button w3-hover-indigo w3-ripple">Раскрасить</button>
                 </div>
@@ -170,5 +169,7 @@
             </footer>
         </div>
     </div>
+    <input id="image-original" type="hidden" />
+    <input id="content-type-original" type="hidden" />
 </body>
 </html>

@@ -50,6 +50,10 @@ function selectImage() {
             success: function (result) {
                 $("div.editing-image").html(result);
                 document.getElementById('upload-image-modal').style.display = 'none';
+                let originalBase64 = document.getElementById('image-base64-hidden').value;
+                $("#image-original").val(originalBase64);
+                let contentType = document.getElementById('image-contentType-hidden').value;
+                $("#content-type-original").val(contentType);
             },
             error: function (xhr) {
                 alert(xhr.responseText);
@@ -142,3 +146,9 @@ function changeContrast() {
     });
 }
 
+function reset() {
+    let contentType = $("#content-type-original").val();
+    let imageBase64 = $("#image-original").val();
+    let img = document.querySelector("img");
+    img.src = `data:${contentType};base64, ${imageBase64}`;
+}
