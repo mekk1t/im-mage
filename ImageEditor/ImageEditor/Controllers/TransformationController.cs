@@ -36,7 +36,7 @@ namespace ImageEditor.Controllers
             }
 
             using var ms = new MemoryStream();
-            image.Save(ms, new JpegEncoder());
+            image.Save(ms, Encoder(request.ContentType));
             return View("Picture", new PictureViewModel { Base64 = Convert.ToBase64String(ms.ToArray()), ContentType = request.ContentType });
         }
 
