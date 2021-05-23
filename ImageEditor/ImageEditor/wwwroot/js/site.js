@@ -184,3 +184,40 @@ function reset() {
     img.src = `data:${CONTENT_TYPE};base64, ${ORIGINAL_BASE_64}`;
     $("#image-base64-hidden").val(ORIGINAL_BASE_64);
 }
+
+function filter(filterType) {
+    let image = getImageObject();
+    $.ajax({
+        url: `/api/images/filters/${filterType}`,
+        type: 'POST',
+        data: JSON.stringify(image),
+        contentType: 'application/json',
+        success: function (result) {
+            $("div.editing-image").html(result);
+            allowContrastOrNot();
+        },
+        error: function (xhr) {
+            alert(xhr.responseText);
+        }
+    });
+}
+
+function shades(shade) {
+    let image = getImageObject();
+    $.ajax({
+        url: `/api/images/filters/shades`,
+        type: 'POST',
+        data: JSON.stringify({
+            Image: image,
+            Shade: shade
+        }),
+        contentType: 'application/json',
+        success: function (result) {
+            $("div.editing-image").html(result);
+            allowContrastOrNot();
+        },
+        error: function (xhr) {
+            alert(xhr.responseText);
+        }
+    });
+}

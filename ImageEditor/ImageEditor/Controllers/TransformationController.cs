@@ -1,5 +1,7 @@
 ﻿using ImageEditor.Models;
+using ImageEditor.Models.Filters;
 using ImageEditor.Models.Transformation;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.Formats;
@@ -13,10 +15,10 @@ using System.IO;
 
 namespace ImageEditor.Controllers
 {
-    [Route("api/images/transformations")]
+    [Route("api/images")]
     public class TransformationController : Controller
     {
-        [Route("rotation")]
+        [Route("transformations/rotation")]
         [HttpPost]
         public IActionResult Rotate([FromBody] RotationRequest request)
         {
@@ -39,7 +41,7 @@ namespace ImageEditor.Controllers
             return PictureView(image, request.Image.ContentType);
         }
 
-        [Route("brightness")]
+        [Route("transformations/brightness")]
         [HttpPost]
         public IActionResult ChangeBrightness([FromBody] BrightnessRequest request)
         {
@@ -50,7 +52,7 @@ namespace ImageEditor.Controllers
             return PictureView(image, request.Image.ContentType);
         }
 
-        [Route("contrast")]
+        [Route("transformations/contrast")]
         [HttpPost]
         public IActionResult ChangeContrast([FromBody] ContrastRequest request)
         {
@@ -61,7 +63,7 @@ namespace ImageEditor.Controllers
             return PictureView(image, request.Image.ContentType);
         }
 
-        [Route("flip")]
+        [Route("transformations/flip")]
         [HttpPost]
         public IActionResult FlipImage([FromBody] FlipRequest request)
         {
@@ -81,11 +83,94 @@ namespace ImageEditor.Controllers
             return PictureView(image, request.Image.ContentType);
         }
 
-        [Route("zoom")]
+        [Route("transformations/zoom")]
         [HttpPost]
         public IActionResult ZoomImage()
         {
             throw new NotImplementedException();
+        }
+
+        [Route("filters/sepia")]
+        [HttpPost]
+        public IActionResult Sepia([FromBody] ImageRequest request)
+        {
+            using var image = request.Base64.AsImageSharp();
+            image.Mutate(context => context.Sepia());
+            return PictureView(image, request.ContentType);
+        }
+
+        [Route("filters/blackAndWhite")]
+        [HttpPost]
+        public IActionResult Vintage([FromBody] ImageRequest request)
+        {
+            using var image = request.Base64.AsImageSharp();
+            image.Mutate(context => context.BlackWhite());
+            return PictureView(image, request.ContentType);
+        }
+
+        [Route("filters/blur")]
+        [HttpPost]
+        public IActionResult Blur([FromBody] ImageRequest request)
+        {
+            using var image = request.Base64.AsImageSharp();
+            image.Mutate(context => context.BokehBlur());
+            return PictureView(image, request.ContentType);
+        }
+
+        [Route("filters/nullify")]
+        [HttpPost]
+        public IActionResult Nullify([FromBody] ImageRequest request)
+        {
+            using var image = request.Base64.AsImageSharp();
+            image.Mutate(context => context.Grayscale());
+            return PictureView(image, request.ContentType);
+        }
+
+        [Route("filters/negative")]
+        [HttpPost]
+        public IActionResult Negative([FromBody] ImageRequest request)
+        {
+            using var image = request.Base64.AsImageSharp();
+            image.Mutate(context => context.Invert());
+            return PictureView(image, request.ContentType);
+        }
+
+        [Route("filters/shades")]
+        [HttpPost]
+        public IActionResult ShadesOf([FromBody] ShadeRequest request)
+        {
+            using var image = request.Image.Base64.AsImageSharp();
+            switch (request.Shade)
+            {
+                case Shade.Blue:
+                    for (int x = 0; x < image.Width; x++)
+                    {
+                        for (int y = 0; y < image.Height; y++)
+                        {
+                            image[x, y] = new Rgba32(0, 0, image[x, y].B);
+                        }
+                    }
+                    break;
+                case Shade.Green:
+                    for (int x = 0; x < image.Width; x++)
+                    {
+                        for (int y = 0; y < image.Height; y++)
+                        {
+                            image[x, y] = new Rgba32(0, image[x, y].G, 0);
+                        }
+                    }
+                    break;
+                case Shade.Red:
+                    for (int x = 0; x < image.Width; x++)
+                    {
+                        for (int y = 0; y < image.Height; y++)
+                        {
+                            image[x, y] = new Rgba32(image[x, y].R, 0, 0);
+                        }
+                    }
+                    break;
+            }
+            return PictureView(image, request.Image.ContentType);
         }
 
         private ViewResult PictureView(Image<Rgba32> image, string contentType)
