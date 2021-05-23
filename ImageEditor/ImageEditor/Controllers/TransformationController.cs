@@ -42,7 +42,7 @@ namespace ImageEditor.Controllers
 
         [Route("flip")]
         [HttpPost]
-        public IActionResult Flip([FromBody] FlipRequest request)
+        public IActionResult FlipImage([FromBody] FlipRequest request)
         {
             using var image = Image.Load(Convert.FromBase64String(request.ImageBase64));
             switch (request.Flip)
