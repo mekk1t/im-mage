@@ -50,6 +50,17 @@ namespace ImageEditor.Controllers
             return PictureView(image, request.Image.ContentType);
         }
 
+        [Route("contrast")]
+        [HttpPost]
+        public IActionResult ChangeContrast([FromBody] ContrastRequest request)
+        {
+            using var image = request.Image.Base64.AsImageSharp();
+            var contrast = (float)request.ContrastLevel / (float)100.00;
+            image.Mutate(context => context.Contrast(contrast));
+
+            return PictureView(image, request.Image.ContentType);
+        }
+
         [Route("flip")]
         [HttpPost]
         public IActionResult FlipImage([FromBody] FlipRequest request)
