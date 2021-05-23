@@ -3,7 +3,6 @@ var CONTENT_TYPE = "";
 var BRIGHTNESS_LEVEL = 0;
 var CONTRAST_LEVEL = 0;
 
-
 function toggleElement(id) {
     let element = document.getElementById(id);
     element.classList.toggle("w3-hide");
