@@ -10,7 +10,8 @@
 }
 
 .editor-container img {
-    height: 450px;
+    max-height: 450px;
+    max-width: 550px;
 }
 
 .editor-container div.w3-container:last-child button {
