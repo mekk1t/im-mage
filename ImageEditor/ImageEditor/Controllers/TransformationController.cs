@@ -81,6 +81,13 @@ namespace ImageEditor.Controllers
             return PictureView(image, request.ContentType);
         }
 
+        [Route("zoom")]
+        [HttpPost]
+        public IActionResult ZoomImage()
+        {
+            throw new NotImplementedException();
+        }
+
         private ViewResult PictureView(Image<Rgba32> image, string contentType)
         {
             using var ms = new MemoryStream();
