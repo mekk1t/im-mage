@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using ImageEditor.Models.Transformation
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -100,9 +102,9 @@
                 <div class="kit-flex-center w3-half w3-dropdown-hover">
                     <button class="kit-width-full w3-button w3-indigo w3-round-medium">Повернуть</button>
                     <div class="kit-width-full w3-dropdown-content w3-bar-block w3-border">
-                        <button class="w3-bar-item w3-button-hover w3-button">На 90&deg; против часовой</button>
-                        <button class="w3-bar-item w3-button-hover w3-button">На 90&deg; по часовой</button>
-                        <button onclick="rotateImage()" class="w3-bar-item w3-button-hover w3-button">На 180&deg;</button>
+                        <button onclick="rotateImage('@Rotation.Left90Degrees.ToString()')" class="w3-bar-item w3-button-hover w3-button w3-ripple">На 90&deg; против часовой</button>
+                        <button onclick="rotateImage('@Rotation.Right90Degrees.ToString()')" class="w3-bar-item w3-button-hover w3-button w3-ripple">На 90&deg; по часовой</button>
+                        <button onclick="rotateImage('@Rotation.UpsideDown.ToString()')" class="w3-bar-item w3-button-hover w3-button w3-ripple">На 180&deg;</button>
                     </div>
                 </div>
                 <button href="#" class="kit-flex-center w3-half w3-panel w3-button w3-indigo w3-round-medium w3-ripple">Отразить</button>

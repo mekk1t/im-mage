@@ -40,9 +40,9 @@ namespace ImageEditor.Controllers
             return View("Picture", new PictureViewModel { Base64 = Convert.ToBase64String(ms.ToArray()), ContentType = request.ContentType });
         }
 
-        [Route("mirror")]
+        [Route("flip")]
         [HttpPost]
-        public IActionResult Mirror([FromBody] FlipRequest request)
+        public IActionResult Flip([FromBody] FlipRequest request)
         {
             using var image = Image.Load(Convert.FromBase64String(request.ImageBase64));
             switch (request.Flip)

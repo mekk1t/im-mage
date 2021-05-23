@@ -66,11 +66,10 @@ function getImageObject() {
     return result;
 }
 
-function rotateImage() {
-    let rotate = 'UpsideDown';
+function rotateImage(rotate) {
     let image = getImageObject();
     $.ajax({
-        url: "/api/images/transformations/rotate",
+        url: "/api/images/transformations/rotation",
         type: 'POST',
         data: JSON.stringify({
             ImageBase64: image.Image,
@@ -86,3 +85,24 @@ function rotateImage() {
         }
     });
 }
+
+function flipImage(flip) {
+    let image = getImageObject();
+    $.ajax({
+        url: "/api/images/transformations/flip",
+        type: 'POST',
+        data: JSON.stringify({
+            ImageBase64: image.Image,
+            ContentType: image.ContentType,
+            Flip: flip
+        }),
+        contentType: 'application/json',
+        success: function (result) {
+            $("div.editing-image").html(result);
+        },
+        error: function (xhr) {
+            alert(xhr.responseText);
+        }
+    });
+}
+
