@@ -1,7 +1,6 @@
 ﻿using ImageEditor.Models;
 using ImageEditor.Models.Transformation;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Formatters;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.Formats;
 using SixLabors.ImageSharp.Formats.Bmp;
