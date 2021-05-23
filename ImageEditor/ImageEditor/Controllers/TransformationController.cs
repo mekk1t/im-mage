@@ -6,6 +6,7 @@ using SixLabors.ImageSharp.Formats;
 using SixLabors.ImageSharp.Formats.Bmp;
 using SixLabors.ImageSharp.Formats.Jpeg;
 using SixLabors.ImageSharp.Formats.Png;
+using SixLabors.ImageSharp.PixelFormats;
 using SixLabors.ImageSharp.Processing;
 using System;
 using System.IO;
@@ -19,7 +20,7 @@ namespace ImageEditor.Controllers
         [HttpPost]
         public IActionResult Rotate([FromBody] RotationRequest request)
         {
-            using var image = Image.Load(Convert.FromBase64String(request.ImageBase64));
+            using var image = request.ImageBase64.AsImageSharp();
             switch (request.Rotation)
             {
                 case Rotation.Left90Degrees:
@@ -35,16 +36,25 @@ namespace ImageEditor.Controllers
                     throw new ArgumentException("Неверное значения типа поворота изображения.");
             }
 
-            using var ms = new MemoryStream();
-            image.Save(ms, Encoder(request.ContentType));
-            return View("Picture", new PictureViewModel { Base64 = Convert.ToBase64String(ms.ToArray()), ContentType = request.ContentType });
+            return PictureView(image, request.ContentType);
+        }
+
+        [Route("brightness")]
+        [HttpPost]
+        public IActionResult ChangeBrightness([FromBody] BrightnessRequest request)
+        {
+            using var image = request.Image.Base64.AsImageSharp();
+            var brightness = (float)request.BrightnessLevel / (float)100.00;
+            image.Mutate(i => i.Brightness(brightness));
+
+            return PictureView(image, request.Image.ContentType);
         }
 
         [Route("flip")]
         [HttpPost]
         public IActionResult FlipImage([FromBody] FlipRequest request)
         {
-            using var image = Image.Load(Convert.FromBase64String(request.ImageBase64));
+            using var image = request.ImageBase64.AsImageSharp();
             switch (request.Flip)
             {
                 case Flip.Horizontally:
@@ -57,9 +67,14 @@ namespace ImageEditor.Controllers
                     throw new Exception("Неизвестный тип отражения.");
             }
 
+            return PictureView(image, request.ContentType);
+        }
+
+        private ViewResult PictureView(Image<Rgba32> image, string contentType)
+        {
             using var ms = new MemoryStream();
-            image.Save(ms, Encoder(request.ContentType));
-            return View("Picture", new PictureViewModel { Base64 = Convert.ToBase64String(ms.ToArray()), ContentType = request.ContentType });
+            image.Save(ms, Encoder(contentType));
+            return View("Picture", new PictureViewModel { Base64 = Convert.ToBase64String(ms.ToArray()), ContentType = contentType });
         }
 
         private static IImageEncoder Encoder(string contentType) =>
