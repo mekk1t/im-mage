@@ -9,8 +9,7 @@ namespace ImageEditor.Models.Transformation
 {
     public class RotationRequest
     {
-        public string ImageBase64 { get; set; }
-        public string ContentType { get; set; }
+        public ImageRequest Image { get; set; }
         public Rotation Rotation { get; set; }
     }
 }

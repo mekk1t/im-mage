@@ -60,7 +60,7 @@ function selectImage() {
 
 function getImageObject() {
     let result = {
-        Image: document.getElementById('image-base64-hidden').value,
+        Base64: document.getElementById('image-base64-hidden').value,
         ContentType: document.getElementById('image-contentType-hidden').value
     };
     return result;
@@ -72,8 +72,7 @@ function rotateImage(rotate) {
         url: "/api/images/transformations/rotation",
         type: 'POST',
         data: JSON.stringify({
-            ImageBase64: image.Image,
-            ContentType: image.ContentType,
+            Image: image,
             Rotation: rotate
         }),
         contentType: 'application/json',
@@ -92,9 +91,46 @@ function flipImage(flip) {
         url: "/api/images/transformations/flip",
         type: 'POST',
         data: JSON.stringify({
-            ImageBase64: image.Image,
-            ContentType: image.ContentType,
+            Image: image,
             Flip: flip
+        }),
+        contentType: 'application/json',
+        success: function (result) {
+            $("div.editing-image").html(result);
+        },
+        error: function (xhr) {
+            alert(xhr.responseText);
+        }
+    });
+}
+
+function changeBrightness() {
+    let image = getImageObject();
+    $.ajax({
+        url: "/api/images/transformations/brightness",
+        type: 'POST',
+        data: JSON.stringify({
+            Image: image,
+            BrightnessLevel: $("#brightness input").val()
+        }),
+        contentType: 'application/json',
+        success: function (result) {
+            $("div.editing-image").html(result);
+        },
+        error: function (xhr) {
+            alert(xhr.responseText);
+        }
+    });
+}
+
+function changeContrast() {
+    let image = getImageObject();
+    $.ajax({
+        url: "/api/images/transformations/contrast",
+        type: 'POST',
+        data: JSON.stringify({
+            Image: image,
+            ContrastLevel: $("#contrast input").val()
         }),
         contentType: 'application/json',
         success: function (result) {

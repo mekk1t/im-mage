@@ -127,6 +127,10 @@
                     <input oninput="calculateInput('brightness')" type="range" min="0" max="200" value="100" step="10" />
                     <span class="input-max-value">200%</span> <br />
                     <output>100%</output>
+                    <button class="kit-flex-center w3-half w3-panel w3-button w3-hover-green w3-round-medium w3-ripple"
+                            onclick="changeBrightness()">
+                        Применить
+                    </button>
                 </div>
                 <button class="kit-flex-center w3-half w3-panel w3-button w3-indigo w3-round-medium w3-ripple" onclick="toggleElement('contrast')">Контрастность</button>
                 <div id="contrast" class="w3-hide w3-center">
@@ -134,6 +138,9 @@
                     <input oninput="calculateInput('contrast')" type="range" min="0" max="200" value="100" step="10" />
                     <span class="input-max-value">200%</span> <br />
                     <output>100%</output>
+                    <button class="kit-flex-center w3-half w3-panel w3-button w3-hover-green w3-round-medium w3-ripple"
+                            onclick="changeContrast()">Применить
+                    </button>
                 </div>
             </div>
         </div>

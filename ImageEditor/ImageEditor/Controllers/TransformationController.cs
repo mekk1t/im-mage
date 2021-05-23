@@ -20,7 +20,7 @@ namespace ImageEditor.Controllers
         [HttpPost]
         public IActionResult Rotate([FromBody] RotationRequest request)
         {
-            using var image = request.ImageBase64.AsImageSharp();
+            using var image = request.Image.Base64.AsImageSharp();
             switch (request.Rotation)
             {
                 case Rotation.Left90Degrees:
@@ -36,7 +36,7 @@ namespace ImageEditor.Controllers
                     throw new ArgumentException("Неверное значения типа поворота изображения.");
             }
 
-            return PictureView(image, request.ContentType);
+            return PictureView(image, request.Image.ContentType);
         }
 
         [Route("brightness")]
@@ -65,7 +65,7 @@ namespace ImageEditor.Controllers
         [HttpPost]
         public IActionResult FlipImage([FromBody] FlipRequest request)
         {
-            using var image = request.ImageBase64.AsImageSharp();
+            using var image = request.Image.Base64.AsImageSharp();
             switch (request.Flip)
             {
                 case Flip.Horizontally:
@@ -78,7 +78,7 @@ namespace ImageEditor.Controllers
                     throw new Exception("Неизвестный тип отражения.");
             }
 
-            return PictureView(image, request.ContentType);
+            return PictureView(image, request.Image.ContentType);
         }
 
         [Route("zoom")]
