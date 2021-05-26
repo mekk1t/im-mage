@@ -45,9 +45,9 @@ namespace ImageEditor.Controllers
         [HttpGet("files/{fileName}")]
         public IActionResult Save([FromRoute] string fileName, [FromQuery] string contentType)
         {
-            var fileContent = ReadAllBytes($"Files/{fileName}");
+            var fileContent = ReadAllBytes(fileName);
 
-            return File(fileContent, contentType);
+            return File(fileContent, contentType, fileName);
         }
 
         [HttpPost("files")]
@@ -70,9 +70,9 @@ namespace ImageEditor.Controllers
                     break;
             }
 
-            var fileName = $"{DateTime.UtcNow.Date}_image.{request.ContentType.Substring(request.ContentType.IndexOf("/") + 1)}";
+            var fileName = $"{DateTime.UtcNow.ToShortDateString().Replace("/", "-")}_image.{request.ContentType.Substring(request.ContentType.IndexOf("/") + 1)}";
 
-            WriteAllBytes($"Files/{fileName}", ms.ToArray());
+            WriteAllBytes(fileName, ms.ToArray());
 
             return Ok(new { FileName = fileName });
         }

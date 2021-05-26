@@ -230,7 +230,7 @@ function save() {
         data: JSON.stringify(image),
         contentType: 'application/json',
         success: function (result) {
-            window.location = "/files/" + result.FileName + "?" + image.ContentType;
+            window.location = `files/${result.fileName}?contentType=${image.ContentType}`;
         },
         error: function (xhr) {
             alert(xhr.responseText);
