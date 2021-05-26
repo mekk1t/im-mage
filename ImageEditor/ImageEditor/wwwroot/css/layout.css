@@ -2,6 +2,10 @@
     display: grid;
 }
 
+main div:first-child {
+    height: 540px;
+}
+
 .kit-grid-3 {
     grid-template-columns: 1fr 1fr 1fr;
 }
