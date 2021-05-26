@@ -7,7 +7,6 @@ using SixLabors.ImageSharp;
 using System;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
 using static System.IO.File;
 
 namespace ImageEditor.Controllers
