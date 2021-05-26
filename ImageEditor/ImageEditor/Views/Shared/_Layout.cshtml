@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@using ImageEditor.Models.Transformation
+@using ImageEditor.Models.Filters
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -13,7 +16,7 @@
         <div class="w3-dropdown-hover">
             <button class="w3-button">Файл</button>
             <div class="w3-dropdown-content w3-bar-block w3-border">
-                <a href="#" class="w3-bar-item w3-button-hover w3-button">Выбрать</a>
+                <button onclick="document.getElementById('upload-image-modal').style.display = 'block';"  class="w3-bar-item w3-button-hover w3-button">Выбрать</button>
                 <div class="w3-bar-item w3-dropdown-hover">
                     Сохранить
                     <div class="w3-dropdown-content w3-bar-block w3-border file-extensions-dropdown">
@@ -30,67 +33,49 @@
             <div class="kit-grid kit-grid-2 filters-grid">
                 <h3 class="kit-grid-span-2 kit-flex-center">Фильтры</h3>
                 <div class="w3-container kit-flex kit-flex-downward">
-                    <button onclick="toggleFilterButtonSelectionStatus(this)"
-                            class="w3-panel w3-button w3-round-medium w3-white w3-ripple
-                        selectable-button">
+                    <button onclick="filter('blackAndWhite')"
+                            class="w3-panel w3-button w3-round-medium w3-white w3-ripple">
                         Черно-белый
                     </button>
-                    <button onclick="toggleFilterButtonSelectionStatus(this)"
-                            class="w3-panel w3-button w3-round-medium w3-green
-                        selectable-button">
+                    <button onclick="shades('@Shade.Green')"
+                            class="w3-panel w3-button w3-round-medium w3-green w3-ripple">
                         Оттенки зеленого
                     </button>
-                    <button onclick="toggleFilterButtonSelectionStatus(this)"
-                            class="w3-panel w3-button w3-round-medium w3-red
-                        selectable-button">
+                    <button onclick="shades('@Shade.Red')"
+                            class="w3-panel w3-button w3-round-medium w3-red w3-ripple">
                         Оттенки красного
                     </button>
-                    <button onclick="toggleFilterButtonSelectionStatus(this)"
-                            class="w3-panel w3-button w3-round-medium w3-blue
-                        selectable-button">
+                    <button onclick="shades('@Shade.Blue')"
+                            class="w3-panel w3-button w3-round-medium w3-blue w3-ripple">
                         Оттенки синего
                     </button>
-                    <button onclick="toggleFilterButtonSelectionStatus(this)"
-                            class="w3-panel w3-button w3-round-medium w3-indigo
-                        selectable-button">
-                        Негатив
-                    </button>
+
                 </div>
                 <div class="kit-flex kit-flex-downward">
-                    <button onclick="toggleFilterButtonSelectionStatus(this)"
-                            class="w3-panel w3-button w3-round-medium w3-indigo
-                        selectable-button">
+                    <button onclick="filter('blur')" class="w3-panel w3-button w3-round-medium w3-indigo w3-ripple">
                         Размытие
                     </button>
-                    <button onclick="toggleFilterButtonSelectionStatus(this)"
-                            class="w3-panel w3-button w3-round-medium w3-indigo
-                        selectable-button">
+                    <button onclick="filter('nullify')"
+                            class="w3-panel w3-button w3-round-medium w3-indigo w3-ripple">
                         Обесцвечивание
                     </button>
-                    <button onclick="toggleFilterButtonSelectionStatus(this)"
-                            class="w3-panel w3-button w3-round-medium w3-khaki
-                        selectable-button">
+                    <button onclick="filter('sepia')"
+                            class="w3-panel w3-button w3-round-medium w3-khaki w3-ripple">
                         Сепия
                     </button>
-                    <button onclick="toggleFilterButtonSelectionStatus(this)"
-                            class="w3-panel w3-button w3-round-medium w3-indigo
-                        selectable-button">
-                        Псевдоцвет
-                    </button>
-                    <button onclick="toggleFilterButtonSelectionStatus(this)"
-                            class="w3-panel w3-button w3-round-medium w3-indigo
-                        selectable-button">
-                        Винтаж
+                    <button onclick="filter('negative')"
+                            class="w3-panel w3-button w3-round-medium w3-indigo w3-ripple">
+                        Негатив
                     </button>
                 </div>
             </div>
             <div class="kit-flex kit-flex-downward">
-                @RenderBody()
-                <div class="w3-container w3-margin-top kit-flex-center action-buttons">
-                    <button class="w3-button w3-hover-red w3-ripple">Сброс</button>
-                    <button class="w3-button w3-hover-amber w3-ripple">Отменить</button>
-                    <button id="apply-filters-button" class="w3-button w3-green w3-disabled w3-ripple">Применить</button>
-                    <button class="w3-button w3-hover-indigo w3-ripple">Раскрасить</button>
+                <div class="editing-image kit-flex-center" style="height: 100%;">
+                    @RenderBody()
+                </div>
+                <div class="w3-container w3-margin-top w3-margin-bottom kit-flex-center action-buttons">
+                    <button onclick="reset()" class="w3-button w3-round-medium w3-hover-red w3-ripple">Сброс</button>
+                    <button onclick="save()" class="w3-button w3-round-medium w3-hover-light-green w3-ripple">Сохранить</button>
                 </div>
             </div>
             <div class="w3-container kit-flex kit-flex-downward">
@@ -98,32 +83,38 @@
                 <div class="kit-flex-center w3-half w3-dropdown-hover">
                     <button class="kit-width-full w3-button w3-indigo w3-round-medium">Повернуть</button>
                     <div class="kit-width-full w3-dropdown-content w3-bar-block w3-border">
-                        <button class="w3-bar-item w3-button-hover w3-button">На 90&deg; против часовой</button>
-                        <button class="w3-bar-item w3-button-hover w3-button">На 90&deg; по часовой</button>
-                        <button class="w3-bar-item w3-button-hover w3-button">На 180&deg;</button>
+                        <button onclick="rotateImage('@Rotation.Left90Degrees.ToString()')" class="w3-bar-item w3-button-hover w3-button w3-ripple">На 90&deg; против часовой</button>
+                        <button onclick="rotateImage('@Rotation.Right90Degrees.ToString()')" class="w3-bar-item w3-button-hover w3-button w3-ripple">На 90&deg; по часовой</button>
+                        <button onclick="rotateImage('@Rotation.UpsideDown.ToString()')" class="w3-bar-item w3-button-hover w3-button w3-ripple">На 180&deg;</button>
                     </div>
                 </div>
-                <button href="#" class="kit-flex-center w3-half w3-panel w3-button w3-indigo w3-round-medium w3-ripple">Отразить</button>
-                <button class="kit-flex-center w3-half w3-panel w3-button w3-indigo w3-round-medium w3-ripple" onclick="toggleElement('zoom')">Масштаб</button>
-                <div id="zoom" class="w3-hide w3-center">
-                    <span class="input-min-value">0%</span>
-                    <input oninput="calculateInput('zoom')" type="range" min="0" max="200" value="100" step="10" />
-                    <span class="input-max-value">200%</span> <br />
-                    <output>100%</output>
+                <div class="kit-flex-center w3-half w3-dropdown-hover">
+                    <button class="kit-width-full w3-button w3-indigo w3-round-medium">Отразить</button>
+                    <div class="kit-width-full w3-dropdown-content w3-bar-block w3-border">
+                        <button onclick="flipImage('@Flip.Horizontally.ToString()')" class="w3-bar-item w3-button-hover w3-button w3-ripple">По горизонтали</button>
+                        <button onclick="flipImage('@Flip.Vertically.ToString()')" class="w3-bar-item w3-button-hover w3-button w3-ripple">По вертикали</button>
+                    </div>
                 </div>
                 <button class="kit-flex-center w3-half w3-panel w3-button w3-indigo w3-round-medium w3-ripple" onclick="toggleElement('brightness')">Яркость</button>
                 <div id="brightness" class="w3-hide w3-center">
                     <span class="input-min-value">0%</span>
-                    <input oninput="calculateInput('brightness')" type="range" min="0" max="200" value="100" step="10" />
+                    <input oninput="calculateInput('brightness'), allowBrightnessOrNot()" type="range" min="0" max="200" value="100" step="10" />
                     <span class="input-max-value">200%</span> <br />
                     <output>100%</output>
+                    <button style="display: none;" class="kit-flex-center w3-half w3-panel w3-button w3-hover-green w3-round-medium w3-ripple"
+                            onclick="changeBrightness()">
+                        Применить
+                    </button>
                 </div>
                 <button class="kit-flex-center w3-half w3-panel w3-button w3-indigo w3-round-medium w3-ripple" onclick="toggleElement('contrast')">Контрастность</button>
                 <div id="contrast" class="w3-hide w3-center">
                     <span class="input-min-value">0%</span>
-                    <input oninput="calculateInput('contrast')" type="range" min="0" max="200" value="100" step="10" />
+                    <input oninput="calculateInput('contrast'), allowContrastOrNot()" type="range" min="0" max="200" value="100" step="10" />
                     <span class="input-max-value">200%</span> <br />
                     <output>100%</output>
+                    <button style="display: none;" class="kit-flex-center w3-half w3-panel w3-button w3-hover-green w3-round-medium w3-ripple"
+                            onclick="changeContrast()">Применить
+                    </button>
                 </div>
             </div>
         </div>
@@ -138,5 +129,19 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+    <div id="upload-image-modal" class="w3-modal">
+        <div class="w3-modal-content w3-animate-top">
+            <header class="w3-container w3-indigo">
+                <span onclick="document.getElementById('upload-image-modal').style.display = 'none';" class="close-modal w3-button w3-display-topright">&times;</span>
+                <h2><i>Загрузка изображения для редактирования</i></h2>
+            </header>
+            <form class="w3-padding w3-container" enctype="multipart/form-data" method="post">
+                <input onchange="selectImage()" id="image-upload" type="file" />
+            </form>
+            <footer class="w3-container w3-indigo w3-padding">
+                Поддерживаются форматы <b>JPEG</b>, <b>PNG</b>, <b>BMP</b>.
+            </footer>
+        </div>
+    </div>
 </body>
 </html>

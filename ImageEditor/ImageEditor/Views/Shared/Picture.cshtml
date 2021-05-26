@@ -1,0 +1,14 @@
+﻿@model PictureViewModel
+
+@if (Model == null || string.IsNullOrEmpty(Model.Base64))
+{
+    <img />
+    <p class="w3-center"><i>Файл не выбран</i></p>
+}
+else
+{
+    Layout = null;
+    <img class="kit-flex-center" src="data:@(Model.ContentType);base64, @(Model.Base64)" alt="Картинка" />
+    <input id="image-base64-hidden" type="hidden" value="@Model.Base64" />
+    <input id="image-contentType-hidden" type="hidden" value="@Model.ContentType" />
+}
