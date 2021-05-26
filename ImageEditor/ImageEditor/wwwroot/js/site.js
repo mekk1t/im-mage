@@ -221,3 +221,19 @@ function shades(shade) {
         }
     });
 }
+
+function save() {
+    let image = getImageObject();
+    $.ajax({
+        url: `/files`,
+        type: 'POST',
+        data: JSON.stringify(image),
+        contentType: 'application/json',
+        success: function (result) {
+            window.location = "/files/" + result.FileName + "?" + image.ContentType;
+        },
+        error: function (xhr) {
+            alert(xhr.responseText);
+        }
+    });
+}
